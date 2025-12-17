@@ -53,15 +53,16 @@
         {
           "id": "crwd-maintenance-grant",
           "name": "Clean Water Project Maintenance Grant",
-          "amount": "Up to $5,000/year",
+          "amount": "$200 - $2,000/year",
           "property_types": ["commercial", "institutional", "municipal", "hoa"],
           "project_types": [
             "maintenance of existing stormwater BMPs"
           ],
-          "eligibility_note": "For non-residential properties maintaining existing clean water projects",
+          "eligibility_note": "For non-residential properties with previous CRWD-funded projects. Covers weeding, plant replacement, erosion repair, mulching, etc.",
+          "match_required": "50% (25% in Focus Areas)",
           "application_timeline": "Year-round",
           "url": "https://www.capitolregionwd.org/grants/clean-water-project-maintenance-grants/",
-          "notes": "Helps businesses, churches, HOAs, etc. maintain rain gardens and other installations."
+          "notes": "Helps businesses, churches, HOAs, schools maintain existing installations. Volunteer hours count at $25/hr toward match."
         }
       ]
     },
