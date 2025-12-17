@@ -1,0 +1,217 @@
+{
+  "meta": {
+    "version": "0.1.0",
+    "last_updated": "2025-12-17",
+    "notes": "Initial research - needs verification and expansion. Some watersheds may have programs not yet catalogued."
+  },
+  "statewide_programs": [
+    {
+      "id": "lawns-to-legumes",
+      "name": "Lawns to Legumes",
+      "admin": "BWSR + Blue Thumb + Metro Blooms",
+      "amount": "Up to $400 reimbursement",
+      "match_required": "25%",
+      "eligibility": {
+        "property_types": ["residential"],
+        "owner_or_renter": "both",
+        "requirements": "Must have outdoor planting space"
+      },
+      "project_types": [
+        "native pocket plantings",
+        "pollinator trees and shrubs",
+        "pollinator lawns",
+        "pollinator meadows"
+      ],
+      "selection": "Weighted lottery - priority for rusty-patched bumblebee habitat areas, environmental justice factors",
+      "application_cycles": "Spring and Fall each year",
+      "notes": "One grant per person ever - no repeat awards",
+      "url": "https://bluethumb.org/lawns-to-legumes/apply/",
+      "info_url": "https://bwsr.state.mn.us/l2l"
+    }
+  ],
+  "watershed_programs": {
+    "capitol-region": {
+      "watershed_name": "CAPITOL REGION",
+      "programs": [
+        {
+          "id": "crwd-clean-water-project-grant",
+          "name": "Clean Water Project Grant",
+          "amount": "$500 - $200,000 (typical: $500 - $20,000)",
+          "property_types": ["residential", "commercial", "institutional", "municipal"],
+          "project_types": [
+            "rain garden",
+            "native planting",
+            "permeable pavement",
+            "curb cut boulevard",
+            "shoreline restoration"
+          ],
+          "application_timeline": "Year-round",
+          "includes_site_visit": true,
+          "url": "https://www.capitolregionwd.org/grants/clean-water-project-grants/",
+          "notes": "Reimbursement-based. Started 2005. 147+ rain gardens in Hamline-Midway alone."
+        },
+        {
+          "id": "crwd-maintenance-grant",
+          "name": "Clean Water Project Maintenance Grant",
+          "amount": "Up to $5,000/year",
+          "property_types": ["commercial", "institutional", "municipal", "hoa"],
+          "project_types": [
+            "maintenance of existing stormwater BMPs"
+          ],
+          "eligibility_note": "For non-residential properties maintaining existing clean water projects",
+          "application_timeline": "Year-round",
+          "url": "https://www.capitolregionwd.org/grants/clean-water-project-maintenance-grants/",
+          "notes": "Helps businesses, churches, HOAs, etc. maintain rain gardens and other installations."
+        }
+      ]
+    },
+    "minnehaha-creek": {
+      "watershed_name": "MINNEHAHA CREEK",
+      "programs": [
+        {
+          "id": "mcwd-cost-share",
+          "name": "Cost Share Program",
+          "amount": "Up to 50% of project cost",
+          "project_types": [
+            "rain garden",
+            "native planting",
+            "shoreline planting",
+            "streambank planting",
+            "pervious pavement"
+          ],
+          "url": "https://minnehahacreek.org/",
+          "notes": "Covers 29 communities in Hennepin/Carver counties"
+        }
+      ]
+    },
+    "vadnais-lake-area": {
+      "watershed_name": "VADNAIS LAKE AREA",
+      "programs": [
+        {
+          "id": "vlawmo-landscape-level-1",
+          "name": "Landscape Level 1 Grant",
+          "amount": "Up to $5,000 ($7,500 for curb cut rain gardens)",
+          "project_types": [
+            "rain garden",
+            "native planting",
+            "curb cut rain garden"
+          ],
+          "url": "https://www.vlawmo.org/",
+          "notes": "Higher amount for curb cut projects"
+        },
+        {
+          "id": "vlawmo-soil-health",
+          "name": "Soil Health Grant",
+          "amount": "Up to $1,000 ($1,250 in priority zones)",
+          "project_types": [
+            "soil health improvement"
+          ],
+          "url": "https://www.vlawmo.org/"
+        }
+      ]
+    },
+    "ramsey-washington-metro": {
+      "watershed_name": "RAMSEY-WASHINGTON METRO",
+      "programs": [
+        {
+          "id": "rwmwd-stewardship",
+          "name": "Stewardship Grants",
+          "amount": "Varies - needs research",
+          "project_types": [
+            "rain garden",
+            "native planting"
+          ],
+          "needs_research": true,
+          "notes": "Available to eastern Twin Cities metro residents"
+        }
+      ]
+    },
+    "rice-creek": {
+      "watershed_name": "RICE CREEK",
+      "programs": [
+        {
+          "id": "rcwd-cost-share",
+          "name": "Cost Share Program",
+          "amount": "Needs research",
+          "needs_research": true,
+          "notes": "Known to have residential programs - needs verification"
+        }
+      ]
+    },
+    "shingle-creek": {
+      "watershed_name": "SHINGLE CREEK",
+      "programs": [
+        {
+          "id": "scwm-cost-share",
+          "name": "Cost Share Program",
+          "amount": "Needs research",
+          "needs_research": true,
+          "notes": "Member cities: Brooklyn Center, Brooklyn Park, Crystal, Maple Grove, Minneapolis, New Hope, Osseo, Plymouth, Robbinsdale"
+        }
+      ]
+    },
+    "west-mississippi": {
+      "watershed_name": "WEST MISSISSIPPI",
+      "programs": [
+        {
+          "id": "wmwm-cost-share",
+          "name": "Cost Share Program",
+          "amount": "Needs research",
+          "needs_research": true,
+          "notes": "Member cities: Brooklyn Center, Brooklyn Park, Champlin, Maple Grove, Osseo"
+        }
+      ]
+    },
+    "mississippi": {
+      "watershed_name": "MISSISSIPPI",
+      "programs": [
+        {
+          "id": "mwmo-stewardship",
+          "name": "Stewardship Fund Grants",
+          "amount": "Needs research",
+          "eligibility_note": "Available to groups and organizations (not individuals) in portions of Minneapolis, St. Paul, St. Anthony Village, Lauderdale",
+          "needs_research": true
+        }
+      ]
+    }
+  },
+  "watersheds_needing_research": [
+    "bassett-creek",
+    "black-dog",
+    "browns-creek",
+    "carnelian-marine-st-croix",
+    "carver-county",
+    "comfort-lake-forest-lake",
+    "coon-creek",
+    "eagan-inver-grove",
+    "elm-creek",
+    "lower-minnesota-river",
+    "lower-mississippi-river",
+    "lower-rum-river",
+    "middle-st-croix",
+    "nine-mile-creek",
+    "north-cannon-river",
+    "pioneer-sarah-creek",
+    "prior-lake-spring-lake",
+    "richfield-bloomington",
+    "riley-purgatory-bluff-creek",
+    "scott",
+    "south-washington",
+    "sunrise-river",
+    "upper-rum-river",
+    "valley-branch",
+    "vermillion-river"
+  ],
+  "research_sources": [
+    {
+      "name": "Blue Thumb Local Grants Page",
+      "url": "https://bluethumb.org/local-grants-for-native-plantings/",
+      "notes": "Best aggregated source - check for updates"
+    },
+    {
+      "name": "Friends of the Mississippi River",
+      "url": "https://fmr.org/cost-share-programs-river-friendly-landscaping",
+      "notes": "Good overview of cost-share programs"
+    }
+  ]
+}
