@@ -25,9 +25,37 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
       line-height: 1.6;
       color: var(--text);
-      background: var(--cream);
+      background: transparent;
       margin: 0;
       padding: 20px;
+      min-height: 100vh;
+    }
+
+    .bg-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .bg-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(
+        to bottom,
+        rgba(250, 248, 245, 0.92) 0%,
+        rgba(250, 248, 245, 0.88) 200px,
+        rgba(250, 248, 245, 0.82) 100%
+      );
     }
 
     .container {
@@ -256,6 +284,8 @@
   </style>
 </head>
 <body>
+  <div class="bg-image" id="bg-image"></div>
+  <div class="bg-overlay"></div>
   <div class="container">
     <h1>Find Grants for Native Landscaping</h1>
     <p class="subtitle">Discover funding opportunities for pollinator gardens, rain gardens, and native plantings in your area.</p>
@@ -345,6 +375,20 @@
   <script>
     let watershedData = null;
     let grantsData = null;
+
+    // Hero background images
+    const heroImages = [
+      'images/hero-treefrog.jpg',
+      'images/hero-blackeyedsusan.jpg',
+      'images/hero-biomass.jpg'
+    ];
+
+    // Set random background on load
+    function setRandomBackground() {
+      const randomImage = heroImages[Math.floor(Math.random() * heroImages.length)];
+      document.getElementById('bg-image').style.backgroundImage = `url('${randomImage}')`;
+    }
+    setRandomBackground();
 
     // Load data on page load
     async function loadData() {
