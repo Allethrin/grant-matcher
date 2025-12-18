@@ -32,6 +32,27 @@
       "notes": "One grant per person ever - no repeat awards",
       "url": "https://bluethumb.org/lawns-to-legumes/apply/",
       "info_url": "https://bwsr.state.mn.us/l2l"
+    },
+    {
+      "id": "hennepin-county-opportunity-grants",
+      "name": "Hennepin County Opportunity Grants",
+      "admin": "Hennepin County Environment & Energy",
+      "amount": "$25,000 - $50,000",
+      "match_required": "Can be used as match for other funding sources",
+      "property_types": ["residential", "commercial", "nonprofit", "church", "school", "municipal"],
+      "project_types": [
+        "rain gardens",
+        "stormwater ponds",
+        "infiltration basins",
+        "permeable pavement",
+        "woodland restoration",
+        "prairie restoration",
+        "shoreline restoration"
+      ],
+      "eligibility_note": "For larger projects leveraging multiple funding sources. Hennepin County properties only. Pre-application meeting recommended.",
+      "application_timeline": "Contact to confirm 2025 acceptance status",
+      "notes": "Awarded $353k across 6 projects in 2024. Great for institutions, nonprofits, churches planning significant native restoration. Contact Ellen Sones: ellen.sones@hennepin.us",
+      "url": "https://www.hennepin.us/business/conservation/funding-assistance-natural-resources-projects"
     }
   ],
   "watershed_programs": {
@@ -264,6 +285,28 @@
         }
       ]
     },
+    "nine-mile-creek": {
+      "watershed_name": "NINE MILE CREEK",
+      "programs": [
+        {
+          "id": "nmcwd-cost-share",
+          "name": "Cost Share Grant Program",
+          "amount": "Up to $3,750 (residential habitat/native plantings)",
+          "property_types": ["residential", "commercial", "hoa", "school", "church", "nonprofit", "municipal"],
+          "match_required": "Varies by project type",
+          "project_types": [
+            "rain gardens",
+            "shoreline buffers",
+            "permeable pavers",
+            "native plantings",
+            "habitat restoration",
+            "chloride reduction"
+          ],
+          "url": "https://www.ninemilecreek.org/",
+          "notes": "Covers Bloomington, Eden Prairie, Edina, Hopkins, Minnetonka, Richfield. Good option for residential and smaller commercial projects."
+        }
+      ]
+    },
     "mississippi": {
       "watershed_name": "MISSISSIPPI",
       "programs": [
@@ -314,7 +357,6 @@
     "lower-mississippi-river",
     "lower-rum-river",
     "middle-st-croix",
-    "nine-mile-creek",
     "north-cannon-river",
     "pioneer-sarah-creek",
     "prior-lake-spring-lake",
