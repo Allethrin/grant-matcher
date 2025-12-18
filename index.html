@@ -270,6 +270,40 @@
     </div>
 
     <div class="form-section">
+      <h2>Property Type</h2>
+      <div class="checkbox-group">
+        <label class="checkbox-item">
+          <input type="radio" name="property-type" value="residential" checked />
+          Home / Residential
+        </label>
+        <label class="checkbox-item">
+          <input type="radio" name="property-type" value="commercial" />
+          Business / Commercial
+        </label>
+        <label class="checkbox-item">
+          <input type="radio" name="property-type" value="church" />
+          Church / Place of Worship
+        </label>
+        <label class="checkbox-item">
+          <input type="radio" name="property-type" value="school" />
+          School
+        </label>
+        <label class="checkbox-item">
+          <input type="radio" name="property-type" value="hoa" />
+          HOA / Condo Association
+        </label>
+        <label class="checkbox-item">
+          <input type="radio" name="property-type" value="nonprofit" />
+          Nonprofit Organization
+        </label>
+        <label class="checkbox-item">
+          <input type="radio" name="property-type" value="municipal" />
+          Government / Municipal
+        </label>
+      </div>
+    </div>
+
+    <div class="form-section">
       <h2>What are you interested in?</h2>
       <div class="checkbox-group">
         <label class="checkbox-item">
@@ -364,26 +398,53 @@
       return null;
     }
 
-    function getGrantsForWatershed(watershed, projectTypes) {
+    function getGrantsForWatershed(watershed, projectTypes, propertyType) {
       const grants = [];
 
-      // Always include statewide programs
+      // Helper to check if grant matches property type
+      function matchesPropertyType(program) {
+        // If no property_types defined, show it (legacy/unknown)
+        if (!program.property_types && !program.eligibility?.property_types) {
+          return true;
+        }
+
+        const programTypes = program.property_types || program.eligibility?.property_types || [];
+
+        // Direct match
+        if (programTypes.includes(propertyType)) {
+          return true;
+        }
+
+        // Handle institutional as umbrella for church, school, nonprofit
+        if (programTypes.includes('institutional') &&
+            ['church', 'school', 'nonprofit'].includes(propertyType)) {
+          return true;
+        }
+
+        return false;
+      }
+
+      // Include statewide programs that match property type
       for (const program of grantsData.statewide_programs) {
-        grants.push({
-          ...program,
-          source: 'statewide'
-        });
+        if (matchesPropertyType(program)) {
+          grants.push({
+            ...program,
+            source: 'statewide'
+          });
+        }
       }
 
       // Check for watershed-specific programs
       if (watershed && grantsData.watershed_programs[watershed.id]) {
         const wsPrograms = grantsData.watershed_programs[watershed.id];
         for (const program of wsPrograms.programs) {
-          grants.push({
-            ...program,
-            source: 'local',
-            watershed_name: watershed.name
-          });
+          if (matchesPropertyType(program)) {
+            grants.push({
+              ...program,
+              source: 'local',
+              watershed_name: watershed.name
+            });
+          }
         }
       }
 
@@ -420,8 +481,11 @@
         const projectCheckboxes = document.querySelectorAll('input[name="project"]:checked');
         const projectTypes = Array.from(projectCheckboxes).map(cb => cb.value);
 
+        // Get selected property type
+        const propertyType = document.querySelector('input[name="property-type"]:checked').value;
+
         // Get matching grants
-        const grants = getGrantsForWatershed(watershed, projectTypes);
+        const grants = getGrantsForWatershed(watershed, projectTypes, propertyType);
 
         // Render results
         renderResults(grants, watershed, location);
@@ -509,6 +573,10 @@
 
       if (grant.application_timeline) {
         html += `<div class="details">Applications: ${grant.application_timeline}</div>`;
+      }
+
+      if (grant.eligibility_note) {
+        html += `<div class="details" style="font-style: italic;">${grant.eligibility_note}</div>`;
       }
 
       if (grant.notes) {
