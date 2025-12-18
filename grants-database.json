@@ -1,8 +1,13 @@
 {
   "meta": {
-    "version": "0.1.0",
+    "version": "0.2.0",
     "last_updated": "2025-12-17",
-    "notes": "Initial research - needs verification and expansion. Some watersheds may have programs not yet catalogued."
+    "notes": "All documented watersheds now have verified property types and amounts. 25 watersheds still need research.",
+    "future_maintenance": {
+      "problem": "Grant amounts, eligibility, and URLs change over time. Manual verification doesn't scale.",
+      "short_term": "Document manual verification workflow — run through each URL quarterly, update JSON",
+      "long_term": "Automated freshness checking: scrape source URLs periodically, flag changes for review, possibly auto-update with human approval"
+    }
   },
   "statewide_programs": [
     {
@@ -70,18 +75,32 @@
       "watershed_name": "MINNEHAHA CREEK",
       "programs": [
         {
-          "id": "mcwd-cost-share",
-          "name": "Cost Share Program",
-          "amount": "Up to 50% of project cost",
+          "id": "mcwd-residential-note",
+          "name": "Residential Cost Share (via city/county partners)",
+          "amount": "Varies by partner organization",
+          "property_types": ["residential"],
           "project_types": [
             "rain garden",
             "native planting",
-            "shoreline planting",
-            "streambank planting",
-            "pervious pavement"
+            "shoreline planting"
           ],
-          "url": "https://minnehahacreek.org/",
-          "notes": "Covers 29 communities in Hennepin/Carver counties"
+          "eligibility_note": "MCWD does not offer direct residential grants. Homeowners should contact their city or county for local cost-share options.",
+          "url": "https://minnehahacreek.org/faq/",
+          "notes": "Covers 29 communities in Hennepin/Carver counties. Contact your city for available programs."
+        },
+        {
+          "id": "mcwd-land-water-partnership",
+          "name": "Land & Water Partnership Program",
+          "amount": "Varies (large-scale projects)",
+          "property_types": ["municipal", "commercial"],
+          "project_types": [
+            "stormwater management",
+            "water quality improvement",
+            "flood reduction"
+          ],
+          "eligibility_note": "For municipalities and large-scale private developers/landowners with capacity to lead project implementation.",
+          "url": "https://minnehahacreek.org/partnerships/land-water-partnership-program/",
+          "notes": "Technical and financial support from concept through construction. High-impact regional projects."
         }
       ]
     },
@@ -92,22 +111,30 @@
           "id": "vlawmo-landscape-level-1",
           "name": "Landscape Level 1 Grant",
           "amount": "Up to $5,000 ($7,500 for curb cut rain gardens)",
+          "property_types": ["residential", "commercial", "hoa", "municipal", "nonprofit"],
+          "match_required": "50-75%",
           "project_types": [
             "rain garden",
             "native planting",
             "curb cut rain garden"
           ],
-          "url": "https://www.vlawmo.org/",
-          "notes": "Higher amount for curb cut projects"
+          "url": "https://www.vlawmo.org/grants/landscape/",
+          "notes": "25-50% reimbursement (75% for curb cuts). First come, first served."
         },
         {
           "id": "vlawmo-soil-health",
           "name": "Soil Health Grant",
           "amount": "Up to $1,000 ($1,250 in priority zones)",
+          "property_types": ["residential", "commercial", "hoa", "municipal", "nonprofit"],
+          "match_required": "25%",
           "project_types": [
+            "native plantings",
+            "downspout rain gardens",
+            "turf replacement",
             "soil health improvement"
           ],
-          "url": "https://www.vlawmo.org/"
+          "url": "https://www.vlawmo.org/grants/landscape/",
+          "notes": "75% reimbursement. Good entry point for smaller projects."
         }
       ]
     },
@@ -115,15 +142,46 @@
       "watershed_name": "RAMSEY-WASHINGTON METRO",
       "programs": [
         {
-          "id": "rwmwd-stewardship",
-          "name": "Stewardship Grants",
-          "amount": "Varies - needs research",
+          "id": "rwmwd-stewardship-residential",
+          "name": "Stewardship Grants (Residential)",
+          "amount": "Up to $15,000",
+          "property_types": ["residential"],
+          "match_required": "0-50% depending on location",
           "project_types": [
             "rain garden",
-            "native planting"
+            "native landscaping",
+            "shoreland restoration",
+            "pervious pavement"
           ],
-          "needs_research": true,
-          "notes": "Available to eastern Twin Cities metro residents"
+          "url": "https://rwmwd.org/get-involved/stewardship-grants/",
+          "notes": "50-100% funding depending on project type and location. Site consultation required before applying."
+        },
+        {
+          "id": "rwmwd-stewardship-institutional",
+          "name": "Stewardship Grants (Commercial/Institutional)",
+          "amount": "Up to $100,000",
+          "property_types": ["commercial", "institutional", "church", "school", "hoa", "municipal"],
+          "match_required": "0-50% depending on location",
+          "project_types": [
+            "rain garden",
+            "native landscaping",
+            "shoreland restoration",
+            "pervious pavement"
+          ],
+          "url": "https://rwmwd.org/get-involved/stewardship-grants/",
+          "notes": "50-100% funding. Requests over $5k need Board approval. Great option for churches, schools, HOAs."
+        },
+        {
+          "id": "rwmwd-maintenance",
+          "name": "Maintenance Funding",
+          "amount": "Up to $1,500/year ($7,500 over 5 years)",
+          "property_types": ["residential", "commercial", "institutional", "church", "school", "hoa"],
+          "project_types": [
+            "maintenance of existing grant-funded projects"
+          ],
+          "eligibility_note": "For properties with RWMWD grant-funded projects completed within last 5 years.",
+          "url": "https://rwmwd.org/get-involved/stewardship-grants/",
+          "notes": "Up to 50% of annual maintenance costs."
         }
       ]
     },
@@ -131,11 +189,34 @@
       "watershed_name": "RICE CREEK",
       "programs": [
         {
-          "id": "rcwd-cost-share",
-          "name": "Cost Share Program",
-          "amount": "Needs research",
-          "needs_research": true,
-          "notes": "Known to have residential programs - needs verification"
+          "id": "rcwd-mini-grants",
+          "name": "Mini-Grants Program",
+          "amount": "Up to $500",
+          "property_types": ["residential", "commercial", "church", "school"],
+          "project_types": [
+            "native plantings",
+            "rain gardens",
+            "rain barrels",
+            "educational events"
+          ],
+          "url": "https://www.ricecreek.org/grants/mini-grants/",
+          "notes": "One application per year. First come, first served. Reimbursement-based."
+        },
+        {
+          "id": "rcwd-water-quality",
+          "name": "Water Quality Grants",
+          "amount": "Up to $10,000",
+          "property_types": ["residential", "commercial", "church", "school", "municipal"],
+          "match_required": "25-75% depending on benefit",
+          "project_types": [
+            "rain gardens",
+            "shoreline restoration",
+            "prairie restoration",
+            "wetland restoration",
+            "pervious pavers"
+          ],
+          "url": "https://www.ricecreek.org/costshare",
+          "notes": "25-50% funding typical, up to 75% for highly beneficial projects. Covers Anoka, Hennepin, Ramsey, Washington counties."
         }
       ]
     },
@@ -143,11 +224,21 @@
       "watershed_name": "SHINGLE CREEK",
       "programs": [
         {
-          "id": "scwm-cost-share",
-          "name": "Cost Share Program",
-          "amount": "Needs research",
-          "needs_research": true,
-          "notes": "Member cities: Brooklyn Center, Brooklyn Park, Crystal, Maple Grove, Minneapolis, New Hope, Osseo, Plymouth, Robbinsdale"
+          "id": "scwm-partnership-cost-share",
+          "name": "Partnership Cost Share Program",
+          "amount": "$10,000 - $50,000",
+          "property_types": ["residential", "commercial"],
+          "match_required": "Varies",
+          "project_types": [
+            "rain gardens",
+            "pervious pavement",
+            "infiltration basins",
+            "green roofs",
+            "riverbank stabilization"
+          ],
+          "eligibility_note": "For private property owners. $10k minimum means this is better suited for larger residential or commercial projects. Applications go through City Engineer.",
+          "url": "https://www.shinglecreek.org/cost-share.html",
+          "notes": "Member cities: Brooklyn Center, Brooklyn Park, Crystal, Maple Grove, Minneapolis, New Hope, Osseo, Plymouth, Robbinsdale. High minimum—consider other programs for smaller projects."
         }
       ]
     },
@@ -155,11 +246,21 @@
       "watershed_name": "WEST MISSISSIPPI",
       "programs": [
         {
-          "id": "wmwm-cost-share",
-          "name": "Cost Share Program",
-          "amount": "Needs research",
-          "needs_research": true,
-          "notes": "Member cities: Brooklyn Center, Brooklyn Park, Champlin, Maple Grove, Osseo"
+          "id": "wmwm-partnership-cost-share",
+          "name": "Partnership Cost Share Program",
+          "amount": "$10,000 - $50,000",
+          "property_types": ["residential", "commercial"],
+          "match_required": "Varies",
+          "project_types": [
+            "rain gardens",
+            "pervious pavement",
+            "infiltration basins",
+            "green roofs",
+            "riverbank stabilization"
+          ],
+          "eligibility_note": "For private property owners. $10k minimum means this is better suited for larger residential or commercial projects. Applications go through City Engineer.",
+          "url": "https://www.shinglecreek.org/cost-share.html",
+          "notes": "Same organization as Shingle Creek. Member cities: Brooklyn Center, Brooklyn Park, Champlin, Maple Grove, Osseo. High minimum—consider other programs for smaller projects."
         }
       ]
     },
@@ -167,11 +268,34 @@
       "watershed_name": "MISSISSIPPI",
       "programs": [
         {
-          "id": "mwmo-stewardship",
-          "name": "Stewardship Fund Grants",
-          "amount": "Needs research",
-          "eligibility_note": "Available to groups and organizations (not individuals) in portions of Minneapolis, St. Paul, St. Anthony Village, Lauderdale",
-          "needs_research": true
+          "id": "mwmo-community-grants",
+          "name": "Community Grants",
+          "amount": "Up to $5,000",
+          "property_types": ["nonprofit", "school", "church", "hoa", "municipal"],
+          "project_types": [
+            "rain barrels",
+            "rain gardens",
+            "pervious pavers",
+            "educational programs"
+          ],
+          "eligibility_note": "NOT for individuals or private businesses. Only nonprofits, schools, faith-based orgs, government, and HOAs can apply. Individuals can partner with eligible orgs.",
+          "url": "https://www.mwmo.org/",
+          "notes": "Covers ~40 sq miles in Minneapolis, St. Paul, St. Anthony Village, Lauderdale. Small-to-medium projects."
+        },
+        {
+          "id": "mwmo-action-grants",
+          "name": "Action Grants",
+          "amount": "Up to $50,000",
+          "property_types": ["nonprofit", "school", "church", "hoa", "municipal"],
+          "match_required": "25%",
+          "project_types": [
+            "stormwater management",
+            "water quality improvement",
+            "habitat restoration"
+          ],
+          "eligibility_note": "NOT for individuals or private businesses. For significant projects. Nonprofits, schools, faith-based orgs, government, and HOAs only.",
+          "url": "https://www.mwmo.org/",
+          "notes": "Larger-scale projects. MWMO staff help develop proposals before application."
         }
       ]
     }
