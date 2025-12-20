@@ -197,19 +197,64 @@
 
     .results-intro {
       color: var(--cream);
-      margin-bottom: 1rem;
-      font-size: 1.05rem;
+      margin-bottom: 1.25rem;
+      font-size: 1.4rem;
+      line-height: 1.4;
     }
 
     .results-intro strong {
       color: white;
+      font-weight: 700;
     }
 
     .results-section-header {
-      font-size: 1.1rem;
-      font-weight: 600;
+      font-size: 1.35rem;
+      font-weight: 700;
       color: var(--cream);
-      margin: 1.5rem 0 1rem 0;
+      margin: 1.75rem 0 1rem 0;
+    }
+
+    .search-summary {
+      background: var(--cream);
+      padding: 1rem 1.25rem;
+      border-radius: 12px;
+      margin-bottom: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .search-summary-text {
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .search-summary-text strong {
+      color: var(--teal-dark);
+    }
+
+    .search-again-btn {
+      background: var(--teal);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.2s;
+      width: auto;
+    }
+
+    .search-again-btn:hover {
+      background: var(--teal-dark);
+    }
+
+    .form-hidden {
+      display: none;
     }
 
     .result-card {
@@ -358,80 +403,82 @@
     <h1>Find Grants for Native Landscaping</h1>
     <p class="subtitle">Discover funding opportunities for pollinator gardens, rain gardens, and native plantings in your area.</p>
 
-    <div class="form-section">
-      <h2>Your Location</h2>
-      <label for="address">Street Address</label>
-      <input type="text" id="address" placeholder="123 Main St, Minneapolis, MN" />
+    <div id="form-container">
+      <div class="form-section">
+        <h2>Your Location</h2>
+        <label for="address">Street Address</label>
+        <input type="text" id="address" placeholder="123 Main St, Minneapolis, MN" />
 
-      <label for="zip">Or just ZIP code</label>
-      <input type="text" id="zip" placeholder="55405" />
-    </div>
-
-    <div class="form-section">
-      <h2>Property Type</h2>
-      <div class="checkbox-group">
-        <label class="checkbox-item">
-          <input type="radio" name="property-type" value="residential" checked />
-          Home / Residential
-        </label>
-        <label class="checkbox-item">
-          <input type="radio" name="property-type" value="commercial" />
-          Business / Commercial
-        </label>
-        <label class="checkbox-item">
-          <input type="radio" name="property-type" value="church" />
-          Church / Place of Worship
-        </label>
-        <label class="checkbox-item">
-          <input type="radio" name="property-type" value="school" />
-          School
-        </label>
-        <label class="checkbox-item">
-          <input type="radio" name="property-type" value="hoa" />
-          HOA / Condo Association
-        </label>
-        <label class="checkbox-item">
-          <input type="radio" name="property-type" value="nonprofit" />
-          Nonprofit Organization
-        </label>
-        <label class="checkbox-item">
-          <input type="radio" name="property-type" value="municipal" />
-          Government / Municipal
-        </label>
+        <label for="zip">Or just ZIP code</label>
+        <input type="text" id="zip" placeholder="55405" />
       </div>
-    </div>
 
-    <div class="form-section">
-      <h2>What are you interested in?</h2>
-      <div class="checkbox-group">
-        <label class="checkbox-item">
-          <input type="checkbox" name="project" value="native-planting" checked />
-          Native plantings
-        </label>
-        <label class="checkbox-item">
-          <input type="checkbox" name="project" value="rain-garden" />
-          Rain garden
-        </label>
-        <label class="checkbox-item">
-          <input type="checkbox" name="project" value="pollinator" checked />
-          Pollinator habitat
-        </label>
-        <label class="checkbox-item">
-          <input type="checkbox" name="project" value="shoreline" />
-          Shoreline restoration
-        </label>
-        <label class="checkbox-item">
-          <input type="checkbox" name="project" value="trees-shrubs" />
-          Native trees/shrubs
-        </label>
-        <label class="checkbox-item">
-          <input type="checkbox" name="project" value="permeable-pavement" />
-          Permeable pavement
-        </label>
+      <div class="form-section">
+        <h2>Property Type</h2>
+        <div class="checkbox-group">
+          <label class="checkbox-item">
+            <input type="radio" name="property-type" value="residential" checked />
+            Home / Residential
+          </label>
+          <label class="checkbox-item">
+            <input type="radio" name="property-type" value="commercial" />
+            Business / Commercial
+          </label>
+          <label class="checkbox-item">
+            <input type="radio" name="property-type" value="church" />
+            Church / Place of Worship
+          </label>
+          <label class="checkbox-item">
+            <input type="radio" name="property-type" value="school" />
+            School
+          </label>
+          <label class="checkbox-item">
+            <input type="radio" name="property-type" value="hoa" />
+            HOA / Condo Association
+          </label>
+          <label class="checkbox-item">
+            <input type="radio" name="property-type" value="nonprofit" />
+            Nonprofit Organization
+          </label>
+          <label class="checkbox-item">
+            <input type="radio" name="property-type" value="municipal" />
+            Government / Municipal
+          </label>
+        </div>
       </div>
-    </div>
 
-    <button id="search-btn" onclick="findGrants()">Find Available Grants</button>
+      <div class="form-section">
+        <h2>What are you interested in?</h2>
+        <div class="checkbox-group">
+          <label class="checkbox-item">
+            <input type="checkbox" name="project" value="native-planting" checked />
+            Native plantings
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="project" value="rain-garden" />
+            Rain garden
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="project" value="pollinator" checked />
+            Pollinator habitat
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="project" value="shoreline" />
+            Shoreline restoration
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="project" value="trees-shrubs" />
+            Native trees/shrubs
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="project" value="permeable-pavement" />
+            Permeable pavement
+          </label>
+        </div>
+      </div>
+
+      <button id="search-btn" onclick="findGrants()">Find Available Grants</button>
+    </div>
 
     <div id="results"></div>
 
@@ -599,8 +646,23 @@
         // Get matching grants
         const grants = getGrantsForWatershed(watershed, projectTypes, propertyType);
 
+        // Build search info for summary
+        const propertyLabels = {
+          'residential': 'Home / Residential',
+          'commercial': 'Business / Commercial',
+          'church': 'Church / Place of Worship',
+          'school': 'School',
+          'hoa': 'HOA / Condo Association',
+          'nonprofit': 'Nonprofit Organization',
+          'municipal': 'Government / Municipal'
+        };
+        const searchInfo = {
+          location: address || zip,
+          propertyType: propertyLabels[propertyType] || propertyType
+        };
+
         // Render results
-        renderResults(grants, watershed, location);
+        renderResults(grants, watershed, location, searchInfo);
 
       } catch (err) {
         resultsDiv.innerHTML = `<div class="error">${err.message}</div>`;
@@ -610,10 +672,24 @@
       }
     }
 
-    function renderResults(grants, watershed, location) {
+    function renderResults(grants, watershed, location, searchInfo) {
       const resultsDiv = document.getElementById('results');
+      const formContainer = document.getElementById('form-container');
+
+      // Hide the form
+      formContainer.classList.add('form-hidden');
 
       let html = '';
+
+      // Search summary bar
+      html += `
+        <div class="search-summary">
+          <span class="search-summary-text">
+            Showing grants for <strong>${searchInfo.location}</strong> · ${searchInfo.propertyType}
+          </span>
+          <button class="search-again-btn" onclick="searchAgain()">← New Search</button>
+        </div>
+      `;
 
       if (watershed) {
         html += `<p class="results-intro">
@@ -705,6 +781,18 @@
 
       html += '</div>';
       return html;
+    }
+
+    function searchAgain() {
+      const resultsDiv = document.getElementById('results');
+      const formContainer = document.getElementById('form-container');
+
+      // Clear results and show form
+      resultsDiv.innerHTML = '';
+      formContainer.classList.remove('form-hidden');
+
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
 </body>
