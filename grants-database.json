@@ -67,7 +67,7 @@
       ],
       "eligibility_note": "For larger projects leveraging multiple funding sources. Hennepin County properties only. Pre-application meeting recommended.",
       "application_timeline": "Contact to confirm 2025 acceptance status",
-      "notes": "Awarded $353k across 6 projects in 2024. Great for institutions, nonprofits, churches planning significant native restoration. Contact Ellen Sones: ellen.sones@hennepin.us",
+      "notes": "Awarded $353k across 6 projects in 2024. Great for institutions, nonprofits, churches planning significant native restoration.",
       "url": "https://www.hennepin.us/business/conservation/funding-assistance-natural-resources-projects"
     }
   ],
@@ -414,7 +414,7 @@
           "eligibility_note": "VBWD partners with Washington Conservation District for cost share programs. Contact WCD directly for current program details and to request a site visit.",
           "url": "https://www.mnwcd.org/financial-assistance",
           "link_text": "Contact Washington Conservation District →",
-          "notes": "WCD staff can help with design and connect you to available funding. Call (651) 330-8220 or email info@mnwcd.org."
+          "notes": "WCD staff can help with design and connect you to available funding."
         }
       ]
     },
@@ -435,7 +435,7 @@
           "eligibility_note": "Middle St. Croix WMO partners with Washington Conservation District for cost share programs. Contact WCD directly for current program details and to request a site visit.",
           "url": "https://www.mnwcd.org/financial-assistance",
           "link_text": "Contact Washington Conservation District →",
-          "notes": "WCD staff can help with design and connect you to available funding. Call (651) 330-8220 or email info@mnwcd.org."
+          "notes": "WCD staff can help with design and connect you to available funding."
         }
       ]
     },
@@ -483,7 +483,7 @@
           ],
           "application_timeline": "Year-round, $70k budget for 2025",
           "url": "https://www.swwdmn.org/programs/water-quality-cost-share-program/",
-          "notes": "Free site visit and concept design. Small grants track up to $500 for smaller residential projects. Contact Tony Randazzo: 651-714-3717"
+          "notes": "Free site visit and concept design included. Small grants track up to $500 for smaller residential projects."
         }
       ]
     },
@@ -523,7 +523,7 @@
           "eligibility_note": "No clear resident cost-share program found on website. May work through Anoka County SWCD or have programs not listed online.",
           "url": "https://cooncreekwd.org/",
           "link_text": "Contact district →",
-          "notes": "Contact district directly: 763-755-0975 or info@cooncreekwd.org",
+          "notes": "Contact district directly for current program availability.",
           "needs_research": true
         }
       ]
