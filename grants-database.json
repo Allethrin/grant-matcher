@@ -2,7 +2,7 @@
   "meta": {
     "version": "0.3.1",
     "last_updated": "2025-12-22",
-    "notes": "Added 8 watersheds this session. 16 watersheds still need research.",
+    "notes": "16 watersheds covered, 17 still need research. Coon Creek removed (no confirmed program).",
     "maintenance": {
       "schedule": "Monthly verification recommended",
       "process": "Check each URL, verify amounts/eligibility still current, update JSON"
@@ -506,27 +506,6 @@
           "notes": "Workshops hosted by Dakota County SWCD. Design assistance included. Same program structure as Dakota County."
         }
       ]
-    },
-    "coon-creek": {
-      "watershed_name": "COON CREEK",
-      "programs": [
-        {
-          "id": "ccwd-contact-district",
-          "name": "Contact District for Programs",
-          "amount": "Unknown",
-          "property_types": ["residential", "commercial"],
-          "project_types": [
-            "rain gardens",
-            "native plantings",
-            "stormwater management"
-          ],
-          "eligibility_note": "No clear resident cost-share program found on website. May work through Anoka County SWCD or have programs not listed online.",
-          "url": "https://cooncreekwd.org/",
-          "link_text": "Contact district →",
-          "notes": "Contact district directly for current program availability.",
-          "needs_research": true
-        }
-      ]
     }
   },
   "watersheds_needing_research": [
@@ -535,6 +514,7 @@
     "carnelian-marine-st-croix",
     "carver-county",
     "comfort-lake-forest-lake",
+    "coon-creek",
     "elm-creek",
     "lower-minnesota-river",
     "lower-rum-river",

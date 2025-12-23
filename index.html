@@ -808,9 +808,7 @@
         html += `<div class="details">${grant.notes}</div>`;
       }
 
-      if (grant.needs_research) {
-        html += `<div class="details" style="color: var(--coral);">⚠️ Details being verified - contact us for current info</div>`;
-      }
+      // needs_research is internal tracking only - don't show to users
 
       if (grant.url) {
         const linkText = grant.link_text || 'Learn more & apply →';

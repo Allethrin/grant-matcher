@@ -63,3 +63,9 @@ Imagine clicking through as a homeowner:
 | Specific % not on source page | Change to "Varies - contact [org]" |
 | Phone/email embedded in notes | Remove - available on linked page |
 | Discouraging fine print | Remove or rephrase positively |
+| No confirmed program exists | Don't create a card - users still see statewide programs |
+| Listing "eligible projects" without confirmed program | Remove card or don't list project types |
+
+## About `needs_research`
+
+This flag is for **internal tracking only** - it does NOT display to users. Use it to mark entries that need follow-up, but don't leave it as an excuse for incomplete cards. If you can't verify a program exists, don't create a card.
