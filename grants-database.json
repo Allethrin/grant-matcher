@@ -404,7 +404,7 @@
           "id": "vbwd-wcd-costshare",
           "name": "Cost Share via Washington Conservation District",
           "admin": "Washington Conservation District",
-          "amount": "Up to 50% cost share (varies)",
+          "amount": "Varies - contact WCD",
           "property_types": ["residential", "commercial", "church", "school"],
           "project_types": [
             "rain gardens",
@@ -414,8 +414,7 @@
           "eligibility_note": "VBWD partners with Washington Conservation District for cost share programs. Contact WCD directly for current program details and to request a site visit.",
           "url": "https://www.mnwcd.org/financial-assistance",
           "link_text": "Contact Washington Conservation District →",
-          "notes": "WCD staff can help with design and connect you to available funding. Call (651) 330-8220 or email info@mnwcd.org.",
-          "needs_research": true
+          "notes": "WCD staff can help with design and connect you to available funding. Call (651) 330-8220 or email info@mnwcd.org."
         }
       ]
     },
@@ -426,7 +425,7 @@
           "id": "mscwmo-wcd-costshare",
           "name": "Cost Share via Washington Conservation District",
           "admin": "Washington Conservation District",
-          "amount": "Up to 50% cost share (varies)",
+          "amount": "Varies - contact WCD",
           "property_types": ["residential", "commercial", "church", "school"],
           "project_types": [
             "rain gardens",
@@ -436,8 +435,7 @@
           "eligibility_note": "Middle St. Croix WMO partners with Washington Conservation District for cost share programs. Contact WCD directly for current program details and to request a site visit.",
           "url": "https://www.mnwcd.org/financial-assistance",
           "link_text": "Contact Washington Conservation District →",
-          "notes": "WCD staff can help with design and connect you to available funding. Call (651) 330-8220 or email info@mnwcd.org.",
-          "needs_research": true
+          "notes": "WCD staff can help with design and connect you to available funding. Call (651) 330-8220 or email info@mnwcd.org."
         }
       ]
     },
