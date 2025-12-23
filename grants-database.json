@@ -39,6 +39,7 @@
       "admin": "Hennepin County Environment & Energy",
       "amount": "$25,000 - $50,000",
       "match_required": "Can be used as match for other funding sources",
+      "restrict_to_counties": ["hennepin"],
       "property_types": ["residential", "commercial", "nonprofit", "church", "school", "municipal"],
       "project_types": [
         "rain gardens",

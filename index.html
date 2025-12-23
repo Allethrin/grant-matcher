@@ -563,6 +563,32 @@
     function getGrantsForWatershed(watershed, projectTypes, propertyType) {
       const grants = [];
 
+      // Map watersheds to counties for county-restricted programs
+      const watershedCounties = {
+        'bassett-creek': 'hennepin',
+        'minnehaha-creek': 'hennepin',
+        'shingle-creek': 'hennepin',
+        'west-mississippi': 'hennepin',
+        'nine-mile-creek': 'hennepin',
+        'richfield-bloomington': 'hennepin',
+        'elm-creek': 'hennepin',
+        'pioneer-sarah-creek': 'hennepin',
+        'riley-purgatory-bluff-creek': 'hennepin',
+        'capitol-region': 'ramsey',
+        'ramsey-washington-metro': 'ramsey',
+        'rice-creek': 'anoka',
+        'coon-creek': 'anoka',
+        'vadnais-lake-area': 'ramsey',
+        'mississippi': 'hennepin', // MWMO spans Hennepin/Ramsey
+        'valley-branch': 'washington',
+        'middle-st-croix': 'washington',
+        'south-washington': 'washington',
+        'lower-mississippi-river': 'dakota',
+        'eagan-inver-grove': 'dakota',
+        'scott': 'scott',
+        'carver-county': 'carver'
+      };
+
       // Helper to check if grant matches property type
       function matchesPropertyType(program) {
         // If no property_types defined, show it (legacy/unknown)
@@ -586,8 +612,16 @@
         return false;
       }
 
-      // Include statewide programs that match property type
+      // Include statewide programs that match property type and county restrictions
       for (const program of grantsData.statewide_programs) {
+        // Check county restriction if present
+        if (program.restrict_to_counties && watershed) {
+          const wsCounty = watershedCounties[watershed.id];
+          if (!wsCounty || !program.restrict_to_counties.includes(wsCounty)) {
+            continue; // Skip this program - wrong county
+          }
+        }
+
         if (matchesPropertyType(program)) {
           grants.push({
             ...program,
