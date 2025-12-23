@@ -401,21 +401,20 @@
       "watershed_name": "VALLEY BRANCH",
       "programs": [
         {
-          "id": "vbwd-bmp-grant",
-          "name": "Best Management Practices Grant Program",
-          "admin": "Valley Branch Watershed District + Washington Conservation District",
-          "amount": "Up to 50% cost share",
+          "id": "vbwd-wcd-costshare",
+          "name": "Cost Share via Washington Conservation District",
+          "admin": "Washington Conservation District",
+          "amount": "Up to 50% cost share (varies)",
           "property_types": ["residential", "commercial", "church", "school"],
           "project_types": [
             "rain gardens",
             "shoreline restoration",
-            "native plantings",
-            "habitat improvement",
-            "stormwater management"
+            "native plantings"
           ],
-          "eligibility_note": "Part of EMWREP regional partnership. Washington Conservation District provides design assistance.",
-          "url": "https://www.vbwd.org/",
-          "notes": "Contact VBWD or Washington Conservation District for current availability and application process.",
+          "eligibility_note": "VBWD partners with Washington Conservation District for cost share programs. Contact WCD directly for current program details and to request a site visit.",
+          "url": "https://www.mnwcd.org/financial-assistance",
+          "link_text": "Contact Washington Conservation District →",
+          "notes": "WCD staff can help with design and connect you to available funding. Call (651) 330-8220 or email info@mnwcd.org.",
           "needs_research": true
         }
       ]
@@ -424,20 +423,20 @@
       "watershed_name": "MIDDLE ST. CROIX",
       "programs": [
         {
-          "id": "mscwmo-regional-program",
-          "name": "Regional Cost Share Program",
-          "admin": "Middle St. Croix WMO + Washington Conservation District",
-          "amount": "Up to 50% cost share",
+          "id": "mscwmo-wcd-costshare",
+          "name": "Cost Share via Washington Conservation District",
+          "admin": "Washington Conservation District",
+          "amount": "Up to 50% cost share (varies)",
           "property_types": ["residential", "commercial", "church", "school"],
           "project_types": [
             "rain gardens",
             "shoreline restoration",
-            "native plantings",
-            "stormwater management"
+            "native plantings"
           ],
-          "eligibility_note": "Part of EMWREP regional partnership with Valley Branch, Browns Creek, and other Washington County watersheds. Contact Washington Conservation District for assistance.",
+          "eligibility_note": "Middle St. Croix WMO partners with Washington Conservation District for cost share programs. Contact WCD directly for current program details and to request a site visit.",
           "url": "https://www.mnwcd.org/financial-assistance",
-          "notes": "Regional coordination through East Metro Water Resource Education Program (EMWREP).",
+          "link_text": "Contact Washington Conservation District →",
+          "notes": "WCD staff can help with design and connect you to available funding. Call (651) 330-8220 or email info@mnwcd.org.",
           "needs_research": true
         }
       ]
