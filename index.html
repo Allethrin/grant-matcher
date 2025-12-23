@@ -813,7 +813,8 @@
       }
 
       if (grant.url) {
-        html += `<a href="${grant.url}" target="_blank">Learn more & apply →</a>`;
+        const linkText = grant.link_text || 'Learn more & apply →';
+        html += `<a href="${grant.url}" target="_blank">${linkText}</a>`;
       }
 
       html += '</div>';

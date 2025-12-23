@@ -358,6 +358,7 @@
           ],
           "eligibility_note": "BCWMC does not offer direct grants. Check your city (Crystal, Golden Valley, Medicine Lake, Minneapolis, Minnetonka, New Hope, Plymouth, Robbinsdale, St. Louis Park) for local programs. Blue Thumb resources available.",
           "url": "https://www.bassettcreekwmo.org/learn-participate",
+          "link_text": "Learn more →",
           "notes": "Watershed provides education and resources but funding comes through member cities or statewide programs like Lawns to Legumes."
         }
       ]
@@ -509,6 +510,7 @@
           ],
           "eligibility_note": "No clear resident cost-share program found on website. May work through Anoka County SWCD or have programs not listed online.",
           "url": "https://cooncreekwd.org/",
+          "link_text": "Contact district →",
           "notes": "Contact district directly: 763-755-0975 or info@cooncreekwd.org",
           "needs_research": true
         }
