@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grant Matcher Watershed Coverage</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    body { margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #f5f5f5; }
+    h1 { margin: 0 0 10px 0; color: #333; }
+    .subtitle { color: #666; margin-bottom: 20px; }
+    #map { height: 600px; width: 100%; max-width: 900px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .legend { background: white; padding: 15px; border-radius: 8px; margin-top: 15px; max-width: 500px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .legend-item { display: flex; align-items: center; margin: 8px 0; }
+    .legend-color { width: 24px; height: 24px; border-radius: 4px; margin-right: 10px; border: 1px solid #ccc; }
+    .covered { background: #3d8b7a; }
+    .uncovered { background: #e0e0e0; }
+    .stats { margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+  <h1>Grant Matcher Watershed Coverage</h1>
+  <p class="subtitle">Twin Cities Metro Area - December 2025</p>
+  <div id="map"></div>
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-color covered"></div>
+      <span><strong>Covered</strong> - Programs documented (15 watersheds)</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color uncovered"></div>
+      <span><strong>Needs Research</strong> - Not yet documented (18 watersheds)</span>
+    </div>
+    <div class="stats">
+      <strong>Coverage:</strong> 15 of 33 watersheds (45%)<br><br>
+      <strong>Covered:</strong> Capitol Region, Minnehaha Creek, Vadnais Lake Area, Ramsey-Washington Metro, Rice Creek, Shingle Creek, West Mississippi, Nine Mile Creek, Mississippi (MWMO), Bassett Creek, Lower Mississippi River, Valley Branch, Middle St. Croix, Coon Creek, Richfield-Bloomington
+    </div>
+  </div>
+
+  <script>
+    const coveredWatersheds = [
+      'capitol-region',
+      'minnehaha-creek',
+      'vadnais-lake-area',
+      'ramsey-washington-metro',
+      'rice-creek',
+      'shingle-creek',
+      'west-mississippi',
+      'nine-mile-creek',
+      'mississippi',
+      'bassett-creek',
+      'lower-mississippi-river',
+      'valley-branch',
+      'middle-st-croix',
+      'coon-creek',
+      'richfield-bloomington'
+    ];
+
+    const map = L.map('map').setView([44.95, -93.25], 10);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    fetch('metro_watersheds.geojson')
+      .then(response => response.json())
+      .then(data => {
+        L.geoJSON(data, {
+          style: function(feature) {
+            const isCovered = coveredWatersheds.includes(feature.properties.id);
+            return {
+              fillColor: isCovered ? '#3d8b7a' : '#e0e0e0',
+              weight: 1,
+              opacity: 1,
+              color: isCovered ? '#2d7566' : '#999',
+              fillOpacity: isCovered ? 0.6 : 0.4
+            };
+          },
+          onEachFeature: function(feature, layer) {
+            const isCovered = coveredWatersheds.includes(feature.properties.id);
+            const status = isCovered ? '✓ Programs documented' : '⚠ Needs research';
+            layer.bindPopup('<strong>' + feature.properties.NAME + '</strong><br>' + feature.properties.TYPE + '<br><em>' + status + '</em>');
+          }
+        }).addTo(map);
+      });
+  </script>
+</body>
+</html>

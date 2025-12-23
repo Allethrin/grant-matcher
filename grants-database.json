@@ -1,8 +1,8 @@
 {
   "meta": {
-    "version": "0.2.0",
-    "last_updated": "2025-12-17",
-    "notes": "All documented watersheds now have verified property types and amounts. 25 watersheds still need research.",
+    "version": "0.3.0",
+    "last_updated": "2025-12-22",
+    "notes": "Added 8 watersheds this session. 16 watersheds still need research.",
     "future_maintenance": {
       "problem": "Grant amounts, eligibility, and URLs change over time. Manual verification doesn't scale.",
       "short_term": "Document manual verification workflow — run through each URL quarterly, update JSON",
@@ -341,32 +341,195 @@
           "notes": "Larger-scale projects. MWMO staff help develop proposals before application."
         }
       ]
+    },
+    "bassett-creek": {
+      "watershed_name": "BASSETT CREEK",
+      "programs": [
+        {
+          "id": "bcwmc-no-direct-program",
+          "name": "No Direct Watershed Program",
+          "amount": "Varies by city",
+          "property_types": ["residential", "commercial"],
+          "project_types": [
+            "rain gardens",
+            "native plantings",
+            "shoreline restoration"
+          ],
+          "eligibility_note": "BCWMC does not offer direct grants. Check your city (Crystal, Golden Valley, Medicine Lake, Minneapolis, Minnetonka, New Hope, Plymouth, Robbinsdale, St. Louis Park) for local programs. Blue Thumb resources available.",
+          "url": "https://www.bassettcreekwmo.org/learn-participate",
+          "notes": "Watershed provides education and resources but funding comes through member cities or statewide programs like Lawns to Legumes."
+        }
+      ]
+    },
+    "lower-mississippi-river": {
+      "watershed_name": "LOWER MISSISSIPPI RIVER",
+      "programs": [
+        {
+          "id": "dakota-swcd-landscaping-grant",
+          "name": "Landscaping for Clean Water Grant",
+          "admin": "Dakota County SWCD",
+          "amount": "$250 grant upon completion",
+          "property_types": ["residential", "school", "church"],
+          "project_types": [
+            "rain gardens",
+            "native plantings"
+          ],
+          "eligibility_note": "Must complete required landscaping class first. Available to Dakota County residents and Ramsey County residents within the Lower Mississippi River Watershed (west side of St. Paul).",
+          "url": "https://bluethumb.org/local-grants-for-native-plantings/",
+          "notes": "Small grant but good entry point. Class requirement ensures project success."
+        }
+      ]
+    },
+    "valley-branch": {
+      "watershed_name": "VALLEY BRANCH",
+      "programs": [
+        {
+          "id": "vbwd-bmp-grant",
+          "name": "Best Management Practices Grant Program",
+          "admin": "Valley Branch Watershed District + Washington Conservation District",
+          "amount": "Up to 50% cost share",
+          "property_types": ["residential", "commercial", "church", "school"],
+          "project_types": [
+            "rain gardens",
+            "shoreline restoration",
+            "native plantings",
+            "habitat improvement",
+            "stormwater management"
+          ],
+          "eligibility_note": "Part of EMWREP regional partnership. Washington Conservation District provides design assistance.",
+          "url": "https://www.vbwd.org/",
+          "notes": "Contact VBWD or Washington Conservation District for current availability and application process.",
+          "needs_research": true
+        }
+      ]
+    },
+    "middle-st-croix": {
+      "watershed_name": "MIDDLE ST. CROIX",
+      "programs": [
+        {
+          "id": "mscwmo-regional-program",
+          "name": "Regional Cost Share Program",
+          "admin": "Middle St. Croix WMO + Washington Conservation District",
+          "amount": "Up to 50% cost share",
+          "property_types": ["residential", "commercial", "church", "school"],
+          "project_types": [
+            "rain gardens",
+            "shoreline restoration",
+            "native plantings",
+            "stormwater management"
+          ],
+          "eligibility_note": "Part of EMWREP regional partnership with Valley Branch, Browns Creek, and other Washington County watersheds. Contact Washington Conservation District for assistance.",
+          "url": "https://www.mnwcd.org/financial-assistance",
+          "notes": "Regional coordination through East Metro Water Resource Education Program (EMWREP).",
+          "needs_research": true
+        }
+      ]
+    },
+    "richfield-bloomington": {
+      "watershed_name": "RICHFIELD-BLOOMINGTON",
+      "programs": [
+        {
+          "id": "rb-nine-mile-creek",
+          "name": "Nine Mile Creek Cost Share Program",
+          "admin": "Nine Mile Creek Watershed District",
+          "amount": "Up to $3,750 (residential habitat/native plantings)",
+          "property_types": ["residential", "commercial", "hoa", "school", "church", "nonprofit", "municipal"],
+          "match_required": "Varies by project type",
+          "project_types": [
+            "rain gardens",
+            "shoreline buffers",
+            "permeable pavers",
+            "native plantings",
+            "habitat restoration"
+          ],
+          "eligibility_note": "Richfield and Bloomington residents are served by Nine Mile Creek Watershed District.",
+          "url": "https://www.ninemilecreek.org/",
+          "notes": "Same program as Nine Mile Creek - these cities fall within NMCWD jurisdiction."
+        }
+      ]
+    },
+    "south-washington": {
+      "watershed_name": "SOUTH WASHINGTON",
+      "programs": [
+        {
+          "id": "swwd-cost-share",
+          "name": "Water Quality Cost Share Program",
+          "admin": "South Washington Watershed District",
+          "amount": "~50% of project cost ($5,000/lb phosphorus treated)",
+          "property_types": ["residential", "commercial", "nonprofit", "church", "school", "municipal"],
+          "match_required": "~50%",
+          "project_types": [
+            "rain gardens",
+            "stormwater filtration",
+            "shoreline buffers",
+            "native plantings",
+            "invasive removal with native restoration",
+            "gully repair",
+            "stream restoration"
+          ],
+          "application_timeline": "Year-round, $70k budget for 2025",
+          "url": "https://www.swwdmn.org/programs/water-quality-cost-share-program/",
+          "notes": "Free site visit and concept design. Small grants track up to $500 for smaller residential projects. Contact Tony Randazzo: 651-714-3717"
+        }
+      ]
+    },
+    "eagan-inver-grove": {
+      "watershed_name": "EAGAN-INVER GROVE HEIGHTS",
+      "programs": [
+        {
+          "id": "eigh-landscaping-clean-water",
+          "name": "Landscaping for Clean Water Grant",
+          "admin": "E-IGH WMO + Dakota County SWCD",
+          "amount": "$250 grant upon completion",
+          "property_types": ["residential"],
+          "project_types": [
+            "rain gardens",
+            "native gardens",
+            "shoreline stabilization"
+          ],
+          "eligibility_note": "Must complete Landscaping for Clean Water workshop first. WMO budgets for ~12 projects/year.",
+          "url": "https://eaganinvergroveheightswmo.org/",
+          "notes": "Workshops hosted by Dakota County SWCD. Design assistance included. Same program structure as Dakota County."
+        }
+      ]
+    },
+    "coon-creek": {
+      "watershed_name": "COON CREEK",
+      "programs": [
+        {
+          "id": "ccwd-contact-district",
+          "name": "Contact District for Programs",
+          "amount": "Unknown",
+          "property_types": ["residential", "commercial"],
+          "project_types": [
+            "rain gardens",
+            "native plantings",
+            "stormwater management"
+          ],
+          "eligibility_note": "No clear resident cost-share program found on website. May work through Anoka County SWCD or have programs not listed online.",
+          "url": "https://cooncreekwd.org/",
+          "notes": "Contact district directly: 763-755-0975 or info@cooncreekwd.org",
+          "needs_research": true
+        }
+      ]
     }
   },
   "watersheds_needing_research": [
-    "bassett-creek",
     "black-dog",
     "browns-creek",
     "carnelian-marine-st-croix",
     "carver-county",
     "comfort-lake-forest-lake",
-    "coon-creek",
-    "eagan-inver-grove",
     "elm-creek",
     "lower-minnesota-river",
-    "lower-mississippi-river",
     "lower-rum-river",
-    "middle-st-croix",
     "north-cannon-river",
     "pioneer-sarah-creek",
     "prior-lake-spring-lake",
-    "richfield-bloomington",
     "riley-purgatory-bluff-creek",
     "scott",
-    "south-washington",
     "sunrise-river",
     "upper-rum-river",
-    "valley-branch",
     "vermillion-river"
   ],
   "research_sources": [
