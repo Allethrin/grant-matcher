@@ -1,12 +1,27 @@
 {
   "meta": {
-    "version": "0.3.0",
+    "version": "0.3.1",
     "last_updated": "2025-12-22",
     "notes": "Added 8 watersheds this session. 16 watersheds still need research.",
-    "future_maintenance": {
-      "problem": "Grant amounts, eligibility, and URLs change over time. Manual verification doesn't scale.",
-      "short_term": "Document manual verification workflow — run through each URL quarterly, update JSON",
-      "long_term": "Automated freshness checking: scrape source URLs periodically, flag changes for review, possibly auto-update with human approval"
+    "maintenance": {
+      "schedule": "Monthly verification recommended",
+      "process": "Check each URL, verify amounts/eligibility still current, update JSON"
+    },
+    "field_reference": {
+      "id": "Unique identifier (kebab-case)",
+      "name": "Display name of the program",
+      "admin": "Organization administering the program",
+      "amount": "Grant amount or range (e.g. 'Up to $500', '$250 - $5,000')",
+      "property_types": "Array: residential, commercial, church, school, nonprofit, hoa, municipal, institutional",
+      "project_types": "Array of eligible project types",
+      "match_required": "Cost share percentage required from applicant (e.g. '50%', '25-50%')",
+      "application_timeline": "When to apply (e.g. 'Year-round', 'Spring applications')",
+      "eligibility_note": "Important eligibility details or restrictions",
+      "url": "Link to program info or application",
+      "link_text": "OPTIONAL - Custom button text. Default is 'Learn more & apply →'. Use 'Learn more →' for info-only pages, 'Contact district →' for programs requiring direct contact.",
+      "notes": "Additional context, tips, contact info",
+      "needs_research": "Set to true if details are unverified/incomplete",
+      "restrict_to_counties": "OPTIONAL - Array of county names (lowercase) to limit statewide programs to specific counties"
     }
   },
   "statewide_programs": [
