@@ -201,6 +201,69 @@
       margin-top: 1.5rem;
     }
 
+    .confirm-card {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .confirm-card h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--teal-dark);
+      margin: 0 0 0.75rem 0;
+    }
+
+    .confirm-address {
+      font-size: 1.05rem;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .confirm-watershed {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .confirm-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .confirm-btn {
+      padding: 0.6rem 1.25rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 25px;
+      cursor: pointer;
+      border: none;
+      width: auto;
+      transition: background 0.2s;
+    }
+
+    .confirm-btn.primary {
+      background: var(--teal);
+      color: white;
+    }
+
+    .confirm-btn.primary:hover {
+      background: var(--teal-dark);
+    }
+
+    .confirm-btn.secondary {
+      background: transparent;
+      color: var(--text-light);
+      border: 1px solid var(--border);
+    }
+
+    .confirm-btn.secondary:hover {
+      background: var(--cream-dark);
+    }
+
     .results-intro {
       background: rgba(255, 255, 255, 0.12);
       padding: 1rem 1.25rem;
@@ -339,57 +402,6 @@
       color: var(--text-light);
     }
 
-    .address-wrapper {
-      position: relative;
-    }
-
-    .autocomplete-list {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: white;
-      border: 1px solid var(--border);
-      border-top: none;
-      border-radius: 0 0 6px 6px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-      z-index: 100;
-      max-height: 240px;
-      overflow-y: auto;
-      display: none;
-    }
-
-    .autocomplete-list.visible {
-      display: block;
-    }
-
-    .autocomplete-item {
-      padding: 0.6rem 0.875rem;
-      cursor: pointer;
-      font-size: 0.95rem;
-      border-bottom: 1px solid #f0ebe3;
-      line-height: 1.3;
-    }
-
-    .autocomplete-item:last-child {
-      border-bottom: none;
-    }
-
-    .autocomplete-item:hover,
-    .autocomplete-item.active {
-      background: #f0ebe3;
-    }
-
-    .autocomplete-item .primary {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .autocomplete-item .secondary {
-      color: var(--text-light);
-      font-size: 0.85rem;
-    }
-
     .error {
       background: #fff5f5;
       border: 1px solid #e53e3e;
@@ -469,7 +481,7 @@
   <div class="bg-image" id="bg-image"></div>
   <div class="bg-overlay"></div>
   <div class="container">
-    <a href="https://www.minneprairie.com" class="back-link">← MinnePrairie</a>
+    <a href="https://www.minneprairie.com" class="back-link">&larr; MinnePrairie</a>
     <h1>Find Grants for Native Landscaping</h1>
     <p class="subtitle">Discover funding opportunities for pollinator gardens, rain gardens, and native plantings in your area.</p>
 
@@ -479,11 +491,8 @@
       <div class="form-section">
         <h2>Your Location</h2>
         <label for="address">Street Address</label>
-        <div class="address-wrapper">
-          <input type="text" id="address" placeholder="Start typing an address..." autocomplete="off" />
-          <div id="autocomplete-list" class="autocomplete-list"></div>
-        </div>
-        <p class="field-hint">Select your address from the suggestions for accurate watershed matching.</p>
+        <input type="text" id="address" placeholder="123 Main St, Minneapolis, MN" />
+        <p class="field-hint">Include city and state for best results.</p>
       </div>
 
       <div class="form-section">
@@ -533,8 +542,9 @@
   <script>
     let watershedData = null;
     let grantsData = null;
-    let selectedLocation = null; // Set when user picks from autocomplete
-    let activeAutocompleteIndex = -1;
+
+    // Pending data from geocode step, waiting for user confirmation
+    let pendingResult = null;
 
     // Hero background images
     const heroImages = [
@@ -566,148 +576,10 @@
     }
     loadData();
 
-    // === PHOTON AUTOCOMPLETE ===
-
-    let debounceTimer = null;
-
-    function setupAutocomplete() {
-      const input = document.getElementById('address');
-      const list = document.getElementById('autocomplete-list');
-
-      input.addEventListener('input', function () {
-        const query = this.value.trim();
-        selectedLocation = null; // Clear previous selection on new typing
-        activeAutocompleteIndex = -1;
-
-        if (debounceTimer) clearTimeout(debounceTimer);
-
-        if (query.length < 3) {
-          list.classList.remove('visible');
-          return;
-        }
-
-        debounceTimer = setTimeout(() => fetchSuggestions(query), 300);
-      });
-
-      input.addEventListener('keydown', function (e) {
-        const items = list.querySelectorAll('.autocomplete-item');
-        if (!items.length) return;
-
-        if (e.key === 'ArrowDown') {
-          e.preventDefault();
-          activeAutocompleteIndex = Math.min(activeAutocompleteIndex + 1, items.length - 1);
-          updateActiveItem(items);
-        } else if (e.key === 'ArrowUp') {
-          e.preventDefault();
-          activeAutocompleteIndex = Math.max(activeAutocompleteIndex - 1, 0);
-          updateActiveItem(items);
-        } else if (e.key === 'Enter' && activeAutocompleteIndex >= 0) {
-          e.preventDefault();
-          items[activeAutocompleteIndex].click();
-        } else if (e.key === 'Escape') {
-          list.classList.remove('visible');
-          activeAutocompleteIndex = -1;
-        }
-      });
-
-      // Close dropdown when clicking outside
-      document.addEventListener('click', function (e) {
-        if (!e.target.closest('.address-wrapper')) {
-          list.classList.remove('visible');
-          activeAutocompleteIndex = -1;
-        }
-      });
-    }
-
-    function updateActiveItem(items) {
-      items.forEach((item, i) => {
-        item.classList.toggle('active', i === activeAutocompleteIndex);
-      });
-    }
-
-    async function fetchSuggestions(query) {
-      const list = document.getElementById('autocomplete-list');
-
-      try {
-        // Photon API with location bias toward Twin Cities metro
-        const encoded = encodeURIComponent(query);
-        const url = `https://photon.komoot.io/api/?q=${encoded}&lat=44.97&lon=-93.26&limit=5&lang=en`;
-
-        const response = await fetch(url);
-        if (!response.ok) return;
-
-        const data = await response.json();
-
-        // Filter to Minnesota results only
-        const mnResults = data.features.filter(f => {
-          const props = f.properties;
-          return props.state === 'Minnesota' || props.state === 'MN';
-        });
-
-        if (mnResults.length === 0) {
-          list.classList.remove('visible');
-          return;
-        }
-
-        list.innerHTML = '';
-        mnResults.forEach((feature, i) => {
-          const props = feature.properties;
-          const [lng, lat] = feature.geometry.coordinates;
-
-          // Build display strings
-          const primary = formatPrimary(props);
-          const secondary = formatSecondary(props);
-
-          const item = document.createElement('div');
-          item.className = 'autocomplete-item';
-          item.innerHTML = `<div class="primary">${primary}</div><div class="secondary">${secondary}</div>`;
-
-          item.addEventListener('click', () => {
-            const input = document.getElementById('address');
-            input.value = primary;
-            selectedLocation = { lat, lng, display: `${primary}, ${secondary}` };
-            list.classList.remove('visible');
-            activeAutocompleteIndex = -1;
-          });
-
-          list.appendChild(item);
-        });
-
-        list.classList.add('visible');
-        activeAutocompleteIndex = -1;
-
-      } catch (err) {
-        // Silently fail — user can still type and we'll fall back to Nominatim
-        console.warn('Photon autocomplete error:', err);
-      }
-    }
-
-    function formatPrimary(props) {
-      const parts = [];
-      if (props.housenumber) parts.push(props.housenumber);
-      if (props.street) parts.push(props.street);
-      if (!parts.length && props.name) parts.push(props.name);
-      return parts.join(' ') || props.name || 'Unknown';
-    }
-
-    function formatSecondary(props) {
-      const parts = [];
-      if (props.city) parts.push(props.city);
-      else if (props.county) parts.push(props.county);
-      if (props.state) parts.push(props.state);
-      if (props.postcode) parts.push(props.postcode);
-      return parts.join(', ');
-    }
-
-    // Initialize autocomplete after page load
-    setupAutocomplete();
-
-    // === GEOCODING (Nominatim fallback) ===
-
     async function geocodeAddress(address) {
       // Using Nominatim (OpenStreetMap) - free, no API key
       const encoded = encodeURIComponent(address + ', Minnesota, USA');
-      const url = `https://nominatim.openstreetmap.org/search?q=${encoded}&format=json&limit=1`;
+      const url = `https://nominatim.openstreetmap.org/search?q=${encoded}&format=json&limit=1&addressdetails=1`;
 
       let response;
       try {
@@ -725,22 +597,35 @@
       const data = await response.json();
 
       if (data.length === 0) {
-        throw new Error('Address not found. Please check the address and try again.');
+        throw new Error('Address not found. Try including the city and state (e.g., "1442 Stanford Ave, Saint Paul, MN").');
       }
 
       const lat = parseFloat(data[0].lat);
       const lng = parseFloat(data[0].lon);
 
       // Check if location is roughly in Minnesota / Twin Cities metro area
-      // Approximate bounds: lat 44.5-45.5, lng -94.0 to -92.5
       if (lat < 44.0 || lat > 46.0 || lng < -94.5 || lng > -92.0) {
         throw new Error('This tool covers the Twin Cities metro area. The address you entered appears to be outside our coverage area.');
       }
 
+      // Build a clean display address from address details
+      const addr = data[0].address || {};
+      const displayParts = [];
+      if (addr.house_number && addr.road) {
+        displayParts.push(`${addr.house_number} ${addr.road}`);
+      } else if (addr.road) {
+        displayParts.push(addr.road);
+      }
+      if (addr.city || addr.town || addr.village) {
+        displayParts.push(addr.city || addr.town || addr.village);
+      }
+      if (addr.state) displayParts.push(addr.state);
+      if (addr.postcode) displayParts.push(addr.postcode);
+
       return {
         lat: lat,
         lng: lng,
-        display: data[0].display_name
+        display: displayParts.length > 0 ? displayParts.join(', ') : data[0].display_name
       };
     }
 
@@ -790,14 +675,12 @@
 
       // Helper to check if grant matches property type
       function matchesPropertyType(program) {
-        // If no property_types defined, show it (legacy/unknown)
         if (!program.property_types && !program.eligibility?.property_types) {
           return true;
         }
 
         const programTypes = program.property_types || program.eligibility?.property_types || [];
 
-        // Direct match
         if (programTypes.includes(propertyType)) {
           return true;
         }
@@ -813,11 +696,10 @@
 
       // Include statewide programs that match property type and county restrictions
       for (const program of grantsData.statewide_programs) {
-        // Check county restriction if present
         if (program.restrict_to_counties && watershed) {
           const wsCounty = watershedCounties[watershed.id];
           if (!wsCounty || !program.restrict_to_counties.includes(wsCounty)) {
-            continue; // Skip this program - wrong county
+            continue;
           }
         }
 
@@ -856,24 +738,19 @@
         return;
       }
 
-      // Basic validation - should have at least a street and city/state
       if (address.length < 10 || !address.includes(' ')) {
         resultsDiv.innerHTML = '<div class="error">Please enter a complete address (e.g., "123 Main St, Minneapolis, MN").</div>';
         return;
       }
-
-      const searchAddress = address;
 
       btn.disabled = true;
       btn.textContent = 'Searching...';
       resultsDiv.innerHTML = '<div class="loading">Finding grants for your area...</div>';
 
       try {
-        // Use autocomplete selection if available, otherwise fall back to Nominatim
-        const location = selectedLocation
-          ? selectedLocation
-          : await geocodeAddress(searchAddress);
-        console.log('Location:', location, selectedLocation ? '(from autocomplete)' : '(from Nominatim)');
+        // Geocode the address
+        const location = await geocodeAddress(address);
+        console.log('Location:', location);
 
         // Find watershed
         const watershed = findWatershed(location.lat, location.lng);
@@ -882,26 +759,9 @@
         // Get selected property type
         const propertyType = document.querySelector('input[name="property-type"]:checked').value;
 
-        // Get matching grants
-        const grants = getGrantsForWatershed(watershed, propertyType);
-
-        // Build search info for summary
-        const propertyLabels = {
-          'residential': 'Home / Residential',
-          'commercial': 'Business / Commercial',
-          'church': 'Church / Place of Worship',
-          'school': 'School',
-          'hoa': 'HOA / Condo Association',
-          'nonprofit': 'Nonprofit Organization',
-          'municipal': 'Government / Municipal'
-        };
-        const searchInfo = {
-          location: address,
-          propertyType: propertyLabels[propertyType] || propertyType
-        };
-
-        // Render results
-        renderResults(grants, watershed, location, searchInfo);
+        // Store pending result and show confirmation
+        pendingResult = { location, watershed, propertyType, address };
+        showConfirmation(location, watershed);
 
       } catch (err) {
         resultsDiv.innerHTML = `<div class="error">${err.message}</div>`;
@@ -911,12 +771,56 @@
       }
     }
 
-    function renderResults(grants, watershed, location, searchInfo) {
+    function showConfirmation(location, watershed) {
       const resultsDiv = document.getElementById('results');
       const formContainer = document.getElementById('form-container');
 
       // Hide the form
       formContainer.classList.add('form-hidden');
+
+      const watershedText = watershed
+        ? `Watershed: <strong>${watershed.name}</strong>`
+        : 'Your location is outside our mapped watershed boundaries, but you may still qualify for statewide programs.';
+
+      resultsDiv.innerHTML = `
+        <div class="confirm-card">
+          <h2>We found your location</h2>
+          <div class="confirm-address">${location.display}</div>
+          <div class="confirm-watershed">${watershedText}</div>
+          <div class="confirm-actions">
+            <button class="confirm-btn primary" onclick="confirmAndShowGrants()">Show My Grants</button>
+            <button class="confirm-btn secondary" onclick="searchAgain()">Not right &mdash; try again</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function confirmAndShowGrants() {
+      if (!pendingResult) return;
+
+      const { location, watershed, propertyType, address } = pendingResult;
+      const grants = getGrantsForWatershed(watershed, propertyType);
+
+      const propertyLabels = {
+        'residential': 'Home / Residential',
+        'commercial': 'Business / Commercial',
+        'church': 'Church / Place of Worship',
+        'school': 'School',
+        'hoa': 'HOA / Condo Association',
+        'nonprofit': 'Nonprofit Organization',
+        'municipal': 'Government / Municipal'
+      };
+      const searchInfo = {
+        location: location.display,
+        propertyType: propertyLabels[propertyType] || propertyType
+      };
+
+      renderResults(grants, watershed, location, searchInfo);
+      pendingResult = null;
+    }
+
+    function renderResults(grants, watershed, location, searchInfo) {
+      const resultsDiv = document.getElementById('results');
 
       let html = '';
 
@@ -924,9 +828,9 @@
       html += `
         <div class="search-summary">
           <span class="search-summary-text">
-            Showing grants for <strong>${searchInfo.location}</strong> · ${searchInfo.propertyType}
+            Showing grants for <strong>${searchInfo.location}</strong> &middot; ${searchInfo.propertyType}
           </span>
-          <button class="search-again-btn" onclick="searchAgain()">← New Search</button>
+          <button class="search-again-btn" onclick="searchAgain()">&larr; New Search</button>
         </div>
       `;
 
@@ -943,7 +847,6 @@
       if (grants.length === 0) {
         html += '<div class="no-results">No grants found for your area. Contact us for help exploring options.</div>';
       } else {
-        // Show local grants first, then statewide
         const localGrants = grants.filter(g => g.source === 'local');
         const statewideGrants = grants.filter(g => g.source === 'statewide');
 
@@ -1010,10 +913,8 @@
         html += `<div class="details">${grant.notes}</div>`;
       }
 
-      // needs_research is internal tracking only - don't show to users
-
       if (grant.url) {
-        const linkText = grant.link_text || 'Learn more & apply →';
+        const linkText = grant.link_text || 'Learn more &amp; apply &rarr;';
         html += `<a href="${grant.url}" target="_blank">${linkText}</a>`;
       }
 
@@ -1025,12 +926,10 @@
       const resultsDiv = document.getElementById('results');
       const formContainer = document.getElementById('form-container');
 
-      // Clear results and show form
       resultsDiv.innerHTML = '';
       formContainer.classList.remove('form-hidden');
-      selectedLocation = null;
+      pendingResult = null;
 
-      // Scroll to top
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
