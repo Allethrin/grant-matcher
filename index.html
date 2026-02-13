@@ -466,36 +466,6 @@
         </div>
       </div>
 
-      <div class="form-section">
-        <h2>What are you interested in?</h2>
-        <div class="checkbox-group">
-          <label class="checkbox-item">
-            <input type="checkbox" name="project" value="native-planting" checked />
-            Native plantings
-          </label>
-          <label class="checkbox-item">
-            <input type="checkbox" name="project" value="rain-garden" />
-            Rain garden
-          </label>
-          <label class="checkbox-item">
-            <input type="checkbox" name="project" value="pollinator" checked />
-            Pollinator habitat
-          </label>
-          <label class="checkbox-item">
-            <input type="checkbox" name="project" value="shoreline" />
-            Shoreline restoration
-          </label>
-          <label class="checkbox-item">
-            <input type="checkbox" name="project" value="trees-shrubs" />
-            Native trees/shrubs
-          </label>
-          <label class="checkbox-item">
-            <input type="checkbox" name="project" value="permeable-pavement" />
-            Permeable pavement
-          </label>
-        </div>
-      </div>
-
       <button id="search-btn" onclick="findGrants()">Find Available Grants</button>
     </div>
 
@@ -595,7 +565,7 @@
       return null;
     }
 
-    function getGrantsForWatershed(watershed, projectTypes, propertyType) {
+    function getGrantsForWatershed(watershed, propertyType) {
       const grants = [];
 
       // Map watersheds to counties for county-restricted programs
@@ -713,15 +683,11 @@
         const watershed = findWatershed(location.lat, location.lng);
         console.log('Watershed:', watershed);
 
-        // Get selected project types
-        const projectCheckboxes = document.querySelectorAll('input[name="project"]:checked');
-        const projectTypes = Array.from(projectCheckboxes).map(cb => cb.value);
-
         // Get selected property type
         const propertyType = document.querySelector('input[name="property-type"]:checked').value;
 
         // Get matching grants
-        const grants = getGrantsForWatershed(watershed, projectTypes, propertyType);
+        const grants = getGrantsForWatershed(watershed, propertyType);
 
         // Build search info for summary
         const propertyLabels = {

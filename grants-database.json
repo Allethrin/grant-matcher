@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "0.3.1",
-    "last_updated": "2025-12-22",
+    "last_updated": "2026-02-13",
     "notes": "16 watersheds covered, 17 still need research. Coon Creek removed (no confirmed program).",
     "maintenance": {
       "schedule": "Monthly verification recommended",
@@ -44,7 +44,7 @@
       ],
       "selection": "Weighted lottery - priority for rusty-patched bumblebee habitat areas, environmental justice factors",
       "application_cycles": "Spring and Fall each year",
-      "notes": "Weighted lottery with priority for rusty-patched bumblebee habitat areas.",
+      "notes": "Weighted lottery with priority for rusty-patched bumblebee habitat areas. Spring 2026 cycle is closed — next application window expected Fall 2026.",
       "url": "https://bluethumb.org/lawns-to-legumes/apply/",
       "info_url": "https://bwsr.state.mn.us/l2l"
     },
@@ -66,8 +66,8 @@
         "shoreline restoration"
       ],
       "eligibility_note": "For larger projects leveraging multiple funding sources. Hennepin County properties only. Pre-application meeting recommended.",
-      "application_timeline": "Contact to confirm 2025 acceptance status",
-      "notes": "Awarded $353k across 6 projects in 2024. Great for institutions, nonprofits, churches planning significant native restoration.",
+      "application_timeline": "Currently closed — check back for future rounds",
+      "notes": "Awarded $353k across 6 projects in 2024. Great for institutions, nonprofits, churches planning significant native restoration. No match required.",
       "url": "https://www.hennepin.us/business/conservation/funding-assistance-natural-resources-projects"
     }
   ],
@@ -155,7 +155,7 @@
             "native planting",
             "curb cut rain garden"
           ],
-          "url": "https://www.vlawmo.org/grants/landscape/",
+          "url": "https://www.vlawmo.org/grants/landscape-grants",
           "notes": "25-50% reimbursement (75% for curb cuts). First come, first served."
         },
         {
@@ -170,7 +170,7 @@
             "turf replacement",
             "soil health improvement"
           ],
-          "url": "https://www.vlawmo.org/grants/landscape/",
+          "url": "https://www.vlawmo.org/grants/landscape-grants",
           "notes": "75% reimbursement. Good entry point for smaller projects."
         }
       ]
@@ -206,7 +206,7 @@
             "pervious pavement"
           ],
           "url": "https://rwmwd.org/get-involved/stewardship-grants/",
-          "notes": "50-100% funding. Requests over $5k need Board approval. Great option for churches, schools, HOAs."
+          "notes": "50-100% funding depending on project type and location. Requests over $5k need Board approval. Great option for churches, schools, HOAs."
         },
         {
           "id": "rwmwd-maintenance",
@@ -252,7 +252,7 @@
             "wetland restoration",
             "pervious pavers"
           ],
-          "url": "https://www.ricecreek.org/costshare",
+          "url": "https://www.ricecreek.org/grants/water-quality-grants/",
           "notes": "25-50% funding typical, up to 75% for highly beneficial projects. Covers Anoka, Hennepin, Ramsey, Washington counties."
         }
       ]
@@ -318,8 +318,9 @@
             "habitat restoration",
             "chloride reduction"
           ],
+          "application_timeline": "Apply by March 30, 2026",
           "url": "https://www.ninemilecreek.org/get-involved/grants/",
-          "notes": "Covers Bloomington, Eden Prairie, Edina, Hopkins, Minnetonka, Richfield."
+          "notes": "Covers Bloomington, Eden Prairie, Edina, Hopkins, Minnetonka, Richfield. Associations up to $6,250; commercial/gov/nonprofit up to $12,500. In 2026, 50% of budget reserved for priority equity zones (Hopkins, Richfield, portions of Bloomington/Edina/Eden Prairie). In-kind labor at $35/hr."
         }
       ]
     },
@@ -338,7 +339,7 @@
             "educational programs"
           ],
           "eligibility_note": "NOT for individuals or private businesses. Only nonprofits, schools, faith-based orgs, government, and HOAs can apply. Individuals can partner with eligible orgs.",
-          "url": "https://www.mwmo.org/",
+          "url": "https://www.mwmo.org/get-involved/stewardship-fund-grants/",
           "notes": "Covers ~40 sq miles in Minneapolis, St. Paul, St. Anthony Village, Lauderdale. Small-to-medium projects."
         },
         {
@@ -353,7 +354,7 @@
             "habitat restoration"
           ],
           "eligibility_note": "NOT for individuals or private businesses. For significant projects. Nonprofits, schools, faith-based orgs, government, and HOAs only.",
-          "url": "https://www.mwmo.org/",
+          "url": "https://www.mwmo.org/get-involved/stewardship-fund-grants/",
           "notes": "Larger-scale projects. MWMO staff help develop proposals before application."
         }
       ]
@@ -372,8 +373,8 @@
             "shoreline restoration"
           ],
           "eligibility_note": "BCWMC does not offer direct grants. Check your city (Crystal, Golden Valley, Medicine Lake, Minneapolis, Minnetonka, New Hope, Plymouth, Robbinsdale, St. Louis Park) for local programs. Blue Thumb resources available.",
-          "url": "https://www.bassettcreekwmo.org/learn-participate",
-          "link_text": "Learn more →",
+          "url": "https://bluethumb.org/local-grants-for-native-plantings/",
+          "link_text": "Find local programs →",
           "notes": "Watershed provides education and resources but funding comes through member cities or statewide programs like Lawns to Legumes."
         }
       ]
@@ -457,8 +458,9 @@
             "habitat restoration"
           ],
           "eligibility_note": "Richfield and Bloomington residents are served by Nine Mile Creek Watershed District.",
+          "application_timeline": "Apply by March 30, 2026",
           "url": "https://www.ninemilecreek.org/get-involved/grants/",
-          "notes": "Same program as Nine Mile Creek - these cities fall within NMCWD jurisdiction."
+          "notes": "Same program as Nine Mile Creek - these cities fall within NMCWD jurisdiction. In 2026, 50% of budget reserved for priority equity zones including Richfield and portions of Bloomington."
         }
       ]
     },
@@ -481,7 +483,7 @@
             "gully repair",
             "stream restoration"
           ],
-          "application_timeline": "Year-round, $70k budget for 2025",
+          "application_timeline": "Year-round until funds depleted",
           "url": "https://www.swwdmn.org/programs/water-quality-cost-share-program/",
           "notes": "Free site visit and concept design included. Small grants track up to $500 for smaller residential projects."
         }
@@ -502,7 +504,7 @@
             "shoreline stabilization"
           ],
           "eligibility_note": "Must complete Landscaping for Clean Water workshop first. WMO budgets for ~12 projects/year.",
-          "url": "https://dakotaswcd.org/services/landscaping-for-clean-water-2024",
+          "url": "https://dakotaswcd.org/classes/landscaping-for-clean-water/",
           "notes": "Workshops and design assistance provided by Dakota County SWCD."
         }
       ]
