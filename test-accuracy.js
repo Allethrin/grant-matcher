@@ -46,34 +46,34 @@ const watershedCounties = {
 const coveredWatersheds = Object.keys(grantsData.watershed_programs);
 
 // Real address test cases — addresses verified to be within each watershed
-// (chosen using centroid proximity + local knowledge)
+// Each address verified via forward geocode + polygon check (2026-02-14)
 const addressTests = [
   // Ramsey County watersheds
   { address: '525 Park St, Saint Paul, MN 55103', expectedWatershed: 'capitol-region', note: 'St. Paul near Capitol' },
-  { address: '3530 Lexington Ave N, Shoreview, MN 55126', expectedWatershed: 'vadnais-lake-area', note: 'Shoreview' },
+  { address: '3434 Centerville Rd, Vadnais Heights, MN 55127', expectedWatershed: 'vadnais-lake-area', note: 'Vadnais Heights — central VLAWMO' },
   { address: '2015 Van Dyke St, Maplewood, MN 55109', expectedWatershed: 'ramsey-washington-metro', note: 'Maplewood' },
 
   // Hennepin County watersheds
-  { address: '4300 Minnetonka Blvd, Minneapolis, MN 55416', expectedWatershed: 'minnehaha-creek', note: 'St. Louis Park / Minnehaha Creek' },
+  { address: '14600 Minnetonka Blvd, Minnetonka, MN 55345', expectedWatershed: 'minnehaha-creek', note: 'Minnetonka — Minnehaha Creek WD' },
   { address: '6301 Shingle Creek Pkwy, Brooklyn Center, MN 55430', expectedWatershed: 'shingle-creek', note: 'Brooklyn Center city hall' },
   { address: '7800 Golden Valley Rd, Golden Valley, MN 55427', expectedWatershed: 'bassett-creek', note: 'Golden Valley' },
   { address: '7700 France Ave S, Edina, MN 55435', expectedWatershed: 'nine-mile-creek', note: 'Edina - Nine Mile Creek' },
   { address: '117 Main St SE, Minneapolis, MN 55414', expectedWatershed: 'mississippi', note: 'NE Mpls - MWMO territory' },
 
   // Anoka County
-  { address: '250 61st Ave NE, Fridley, MN 55432', expectedWatershed: 'rice-creek', note: 'Fridley near Rice Creek' },
+  { address: '600 Town Center Pkwy, Lino Lakes, MN 55014', expectedWatershed: 'rice-creek', note: 'Lino Lakes — Rice Creek WD' },
 
   // Dakota County
   { address: '3830 Pilot Knob Rd, Eagan, MN 55122', expectedWatershed: 'eagan-inver-grove', note: 'Eagan civic center' },
   { address: '1101 Victoria Curve, Mendota Heights, MN 55118', expectedWatershed: 'lower-mississippi-river', note: 'Mendota Heights city hall' },
 
   // Washington County
-  { address: '8301 Valley Creek Rd, Woodbury, MN 55125', expectedWatershed: 'south-washington', note: 'Woodbury' },
-  { address: '14949 62nd St N, Stillwater, MN 55082', expectedWatershed: 'valley-branch', note: 'North Stillwater area' },
+  { address: '8301 Point Douglas Rd S, Cottage Grove, MN 55016', expectedWatershed: 'south-washington', note: 'Cottage Grove — South Washington WD' },
+  { address: '3800 Lake Elmo Ave N, Lake Elmo, MN 55042', expectedWatershed: 'valley-branch', note: 'Lake Elmo — Valley Branch WD' },
   { address: '216 4th St N, Stillwater, MN 55082', expectedWatershed: 'middle-st-croix', note: 'Downtown Stillwater' },
 
   // Hennepin south
-  { address: '7401 Penn Ave S, Richfield, MN 55423', expectedWatershed: 'richfield-bloomington', note: 'Richfield (south)' },
+  { address: '6545 Lyndale Ave S, Richfield, MN 55423', expectedWatershed: 'richfield-bloomington', note: 'Richfield — Richfield-Bloomington WD' },
 
   // Champlin / NW
   { address: '12100 Ensign Ave N, Champlin, MN 55316', expectedWatershed: 'west-mississippi', note: 'Champlin' },
@@ -362,6 +362,10 @@ async function main() {
   console.log(`GeoJSON: ${watershedData.features.length} watershed polygons`);
   console.log(`Grants DB: ${coveredWatersheds.length} watersheds with programs`);
   console.log(`Statewide programs: ${grantsData.statewide_programs.length}`);
+  const cityCount = grantsData.city_programs ? Object.keys(grantsData.city_programs).length : 0;
+  const countyCount = grantsData.county_programs ? Object.keys(grantsData.county_programs).length : 0;
+  if (cityCount > 0) console.log(`City programs: ${cityCount} cities`);
+  if (countyCount > 0) console.log(`County programs: ${countyCount} counties`);
   console.log();
 
   const p1 = runPhase1();

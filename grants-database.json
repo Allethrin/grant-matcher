@@ -1,8 +1,8 @@
 {
   "meta": {
-    "version": "0.3.1",
-    "last_updated": "2026-02-13",
-    "notes": "16 watersheds covered, 17 still need research. Coon Creek removed (no confirmed program).",
+    "version": "0.4.0",
+    "last_updated": "2026-02-14",
+    "notes": "16 watersheds covered, 17 still need research. Added city_programs and county_programs for financial incentives beyond watershed grants.",
     "maintenance": {
       "schedule": "Monthly verification recommended",
       "process": "Check each URL, verify amounts/eligibility still current, update JSON"
@@ -386,15 +386,15 @@
           "id": "dakota-swcd-landscaping-grant",
           "name": "Landscaping for Clean Water Grant",
           "admin": "Dakota County SWCD",
-          "amount": "$250 grant upon completion",
+          "amount": "$400 grant upon completion",
           "property_types": ["residential", "school", "church"],
           "project_types": [
             "rain gardens",
             "native plantings"
           ],
           "eligibility_note": "Must complete required landscaping class first. Available to Dakota County residents and Ramsey County residents within the Lower Mississippi River Watershed (west side of St. Paul).",
-          "url": "https://bluethumb.org/local-grants-for-native-plantings/",
-          "notes": "Small grant but good entry point. Class requirement ensures project success."
+          "url": "https://dakotaswcd.org/landscaping-for-clean-water/",
+          "notes": "Grant upon project completion. Class requirement ensures project success. On-site technical assistance included."
         }
       ]
     },
@@ -496,7 +496,7 @@
           "id": "eigh-landscaping-clean-water",
           "name": "Landscaping for Clean Water Grant",
           "admin": "E-IGH WMO + Dakota County SWCD",
-          "amount": "$250 grant upon completion",
+          "amount": "$400 grant upon completion",
           "property_types": ["residential"],
           "project_types": [
             "rain gardens",
@@ -506,6 +506,168 @@
           "eligibility_note": "Must complete Landscaping for Clean Water workshop first. WMO budgets for ~12 projects/year.",
           "url": "https://dakotaswcd.org/classes/landscaping-for-clean-water/",
           "notes": "Workshops and design assistance provided by Dakota County SWCD."
+        }
+      ]
+    }
+  },
+  "city_programs": {
+    "minneapolis": {
+      "city_name": "Minneapolis",
+      "programs": [
+        {
+          "id": "mpls-stormwater-credit",
+          "name": "Residential Stormwater Credit",
+          "admin": "City of Minneapolis Public Works",
+          "amount": "35% stormwater bill reduction (45% in Green Zones)",
+          "property_types": ["residential"],
+          "project_types": [
+            "rain gardens",
+            "pervious pavement"
+          ],
+          "application_timeline": "May 1 - October 1 annually",
+          "eligibility_note": "Ongoing annual savings — not a one-time grant. Rain barrels are NOT eligible. Must be Minneapolis resident.",
+          "url": "https://www.minneapolismn.gov/resident-services/utility-services/stormwater/residential-stormwater-credits/",
+          "notes": "Permanent utility bill reduction for qualifying stormwater management practices. One of the most valuable incentives available — saves money every year."
+        }
+      ]
+    },
+    "saint louis park": {
+      "city_name": "St. Louis Park",
+      "programs": [
+        {
+          "id": "slp-rainwater-rewards",
+          "name": "Rainwater Rewards Program",
+          "admin": "City of St. Louis Park",
+          "amount": "Varies — contact city for current amounts",
+          "property_types": ["residential"],
+          "project_types": [
+            "rain barrels",
+            "rain gardens",
+            "stormwater BMPs"
+          ],
+          "url": "https://www.stlouisparkmn.gov/government/departments-divisions/natural-resouces/rainwater-rewards-program",
+          "notes": "Contact the city for current program details and funding availability.",
+          "needs_research": true
+        }
+      ]
+    }
+  },
+  "county_programs": {
+    "dakota": {
+      "county_name": "Dakota County",
+      "programs": [
+        {
+          "id": "dakota-swcd-landscaping",
+          "name": "Landscaping for Clean Water",
+          "admin": "Dakota County SWCD",
+          "amount": "$400 grant upon completion",
+          "property_types": ["residential", "school", "church"],
+          "project_types": [
+            "rain gardens",
+            "native gardens",
+            "shoreline plantings"
+          ],
+          "eligibility_note": "Must complete free Landscaping for Clean Water class first. 3 application rounds in 2026. Stacks with watershed district grants.",
+          "url": "https://dakotaswcd.org/landscaping-for-clean-water/",
+          "notes": "On-site technical assistance included. Class ensures project quality. Can combine with watershed grants for more total funding."
+        }
+      ]
+    },
+    "carver": {
+      "county_name": "Carver County",
+      "programs": [
+        {
+          "id": "carver-wmo-water-quality",
+          "name": "Improving Water Quality Cost Share",
+          "admin": "Carver County Water Management Organization",
+          "amount": "75% of cost, up to $5,000",
+          "property_types": ["residential", "commercial"],
+          "project_types": [
+            "rain gardens",
+            "native plantings",
+            "shoreline restoration",
+            "water retention systems"
+          ],
+          "application_timeline": "Year-round, prioritized by submission date",
+          "url": "https://bluethumb.org/local-grants-for-native-plantings-2026/",
+          "notes": "Very generous cost share — among the best in the metro. Applications accepted year-round based on available funding. Contact Carver SWCD at 952-466-5230."
+        },
+        {
+          "id": "carver-wmo-pollinator",
+          "name": "Pollinator Habitat Program",
+          "admin": "Carver County Water Management Organization",
+          "amount": "Up to $5,000 (or $2/sq ft)",
+          "property_types": ["residential", "commercial"],
+          "project_types": [
+            "pollinator habitat",
+            "turf conversion to native plantings"
+          ],
+          "eligibility_note": "Minimum project size: 250 square feet.",
+          "application_timeline": "Year-round based on available funding",
+          "url": "https://bluethumb.org/local-grants-for-native-plantings-2026/",
+          "notes": "Convert turf or non-native landscapes to pollinator habitat. Contact Carver SWCD at 952-466-5230."
+        }
+      ]
+    },
+    "scott": {
+      "county_name": "Scott County",
+      "programs": [
+        {
+          "id": "scott-swcd-natural-landscaping",
+          "name": "Natural Landscaping Program",
+          "admin": "Scott County SWCD",
+          "amount": "Contact SWCD for current amounts",
+          "property_types": ["residential"],
+          "project_types": [
+            "native vegetation",
+            "pollinator habitat",
+            "rain gardens"
+          ],
+          "url": "https://www.scottswcd.org/post/scott-swcd-s-2025-natural-landscaping-programs",
+          "link_text": "Contact Scott SWCD →",
+          "notes": "Contact Scott SWCD for current program details and application process.",
+          "needs_research": true
+        }
+      ]
+    },
+    "ramsey": {
+      "county_name": "Ramsey County",
+      "programs": [
+        {
+          "id": "ramsey-cd-cost-share",
+          "name": "Conservation District Cost-Share",
+          "admin": "Ramsey Conservation District",
+          "amount": "Varies — contact for current details",
+          "property_types": ["residential"],
+          "project_types": [
+            "rain gardens",
+            "native plantings",
+            "shoreline restoration"
+          ],
+          "url": "https://www.ramseycounty.us/residents/environment/soil-water-conservation/cost-share-funding-assistance",
+          "link_text": "Contact Ramsey Conservation District →",
+          "notes": "Also offers design assistance for native gardens. Contact for current funding availability."
+        }
+      ]
+    },
+    "washington": {
+      "county_name": "Washington County",
+      "programs": [
+        {
+          "id": "wcd-financial-assistance",
+          "name": "Conservation District Financial Assistance",
+          "admin": "Washington Conservation District",
+          "amount": "Varies — partners with all 8 watershed orgs in the county",
+          "property_types": ["residential", "commercial"],
+          "project_types": [
+            "rain gardens",
+            "shoreline restoration",
+            "habitat improvement",
+            "stormwater management"
+          ],
+          "url": "http://www.mnwcd.org/financial-assistance",
+          "link_text": "Contact Washington Conservation District →",
+          "notes": "WCD connects residents to available funding across watershed districts. Good umbrella resource for Washington County."
         }
       ]
     }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Find Grants for Native Landscaping | MinnePrairie</title>
+  <title>Find Funding for Native Landscaping | MinnePrairie</title>
   <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -342,8 +342,16 @@
       border-left: 4px solid var(--coral);
     }
 
-    .result-card.local {
+    .result-card.watershed {
       border-left: 4px solid var(--teal);
+    }
+
+    .result-card.city {
+      border-left: 4px solid #5b9bd5;
+    }
+
+    .result-card.county {
+      border-left: 4px solid #8b7ec8;
     }
 
     .result-card h3 {
@@ -482,8 +490,8 @@
   <div class="bg-overlay"></div>
   <div class="container">
     <a href="https://www.minneprairie.com" class="back-link">&larr; MinnePrairie</a>
-    <h1>Find Grants for Native Landscaping</h1>
-    <p class="subtitle">Discover funding opportunities for pollinator gardens, rain gardens, and native plantings in your area.</p>
+    <h1>Find Funding for Native Landscaping</h1>
+    <p class="subtitle">Discover grants, credits, and cost-share programs for pollinator gardens, rain gardens, and native plantings in your area.</p>
 
     <p class="disclaimer-prominent">Results are approximate. Verify eligibility directly with program administrators before applying.</p>
 
@@ -529,7 +537,7 @@
         </div>
       </div>
 
-      <button id="search-btn" onclick="findGrants()">Find Available Grants</button>
+      <button id="search-btn" onclick="findGrants()">Find Available Programs</button>
     </div>
 
     <div id="results"></div>
@@ -622,10 +630,16 @@
       if (addr.state) displayParts.push(addr.state);
       if (addr.postcode) displayParts.push(addr.postcode);
 
+      // Extract city and county for program matching
+      const city = (addr.city || addr.town || addr.village || '').toLowerCase();
+      const county = (addr.county || '').toLowerCase().replace(' county', '');
+
       return {
         lat: lat,
         lng: lng,
-        display: displayParts.length > 0 ? displayParts.join(', ') : data[0].display_name
+        display: displayParts.length > 0 ? displayParts.join(', ') : data[0].display_name,
+        city: city,
+        county: county
       };
     }
 
@@ -644,7 +658,7 @@
       return null;
     }
 
-    function getGrantsForWatershed(watershed, propertyType) {
+    function getMatchingPrograms(watershed, propertyType, location) {
       const grants = [];
 
       // Map watersheds to counties for county-restricted programs
@@ -718,8 +732,37 @@
           if (matchesPropertyType(program)) {
             grants.push({
               ...program,
-              source: 'local',
+              source: 'watershed',
               watershed_name: watershed.name
+            });
+          }
+        }
+      }
+
+      // Check for city-specific programs
+      if (location.city && grantsData.city_programs && grantsData.city_programs[location.city]) {
+        const cityData = grantsData.city_programs[location.city];
+        for (const program of cityData.programs) {
+          if (matchesPropertyType(program)) {
+            grants.push({
+              ...program,
+              source: 'city',
+              city_name: cityData.city_name
+            });
+          }
+        }
+      }
+
+      // Check for county-specific programs (SWCD programs)
+      const county = location.county || (watershed ? watershedCounties[watershed.id] : null);
+      if (county && grantsData.county_programs && grantsData.county_programs[county]) {
+        const countyData = grantsData.county_programs[county];
+        for (const program of countyData.programs) {
+          if (matchesPropertyType(program)) {
+            grants.push({
+              ...program,
+              source: 'county',
+              county_name: countyData.county_name
             });
           }
         }
@@ -745,7 +788,7 @@
 
       btn.disabled = true;
       btn.textContent = 'Searching...';
-      resultsDiv.innerHTML = '<div class="loading">Finding grants for your area...</div>';
+      resultsDiv.innerHTML = '<div class="loading">Finding programs for your area...</div>';
 
       try {
         // Geocode the address
@@ -767,7 +810,7 @@
         resultsDiv.innerHTML = `<div class="error">${err.message}</div>`;
       } finally {
         btn.disabled = false;
-        btn.textContent = 'Find Available Grants';
+        btn.textContent = 'Find Available Programs';
       }
     }
 
@@ -788,7 +831,7 @@
           <div class="confirm-address">${location.display}</div>
           <div class="confirm-watershed">${watershedText}</div>
           <div class="confirm-actions">
-            <button class="confirm-btn primary" onclick="confirmAndShowGrants()">Show My Grants</button>
+            <button class="confirm-btn primary" onclick="confirmAndShowGrants()">Show My Programs</button>
             <button class="confirm-btn secondary" onclick="searchAgain()">Not right &mdash; try again</button>
           </div>
         </div>
@@ -799,7 +842,7 @@
       if (!pendingResult) return;
 
       const { location, watershed, propertyType, address } = pendingResult;
-      const grants = getGrantsForWatershed(watershed, propertyType);
+      const grants = getMatchingPrograms(watershed, propertyType, location);
 
       const propertyLabels = {
         'residential': 'Home / Residential',
@@ -828,31 +871,57 @@
       html += `
         <div class="search-summary">
           <span class="search-summary-text">
-            Showing grants for <strong>${searchInfo.location}</strong> &middot; ${searchInfo.propertyType}
+            Showing programs for <strong>${searchInfo.location}</strong> &middot; ${searchInfo.propertyType}
           </span>
           <button class="search-again-btn" onclick="searchAgain()">&larr; New Search</button>
         </div>
       `;
 
-      if (watershed) {
+      // Build location context summary
+      const locationParts = [];
+      if (watershed) locationParts.push(`the <strong>${watershed.name}</strong> watershed`);
+      if (location.city) {
+        const cityDisplay = location.city.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        locationParts.push(`<strong>${cityDisplay}</strong>`);
+      }
+
+      if (locationParts.length > 0) {
         html += `<p class="results-intro">
-          Your location is in the <strong>${watershed.name}</strong> watershed district.
+          We found programs matching your location in ${locationParts.join(', ')}.
         </p>`;
       } else {
         html += `<p class="results-intro">
-          We couldn't determine your specific watershed district, but you may still qualify for statewide programs.
+          We couldn't pinpoint your local area, but you may still qualify for statewide programs.
         </p>`;
       }
 
       if (grants.length === 0) {
-        html += '<div class="no-results">No grants found for your area. Contact us for help exploring options.</div>';
+        html += '<div class="no-results">No programs found for your area. Contact us for help exploring options.</div>';
       } else {
-        const localGrants = grants.filter(g => g.source === 'local');
+        const cityGrants = grants.filter(g => g.source === 'city');
+        const watershedGrants = grants.filter(g => g.source === 'watershed');
+        const countyGrants = grants.filter(g => g.source === 'county');
         const statewideGrants = grants.filter(g => g.source === 'statewide');
 
-        if (localGrants.length > 0) {
-          html += '<h2 class="results-section-header">Local Programs</h2>';
-          for (const grant of localGrants) {
+        if (cityGrants.length > 0) {
+          const cityName = cityGrants[0].city_name || 'City';
+          html += `<h2 class="results-section-header">${cityName} Programs</h2>`;
+          for (const grant of cityGrants) {
+            html += renderGrantCard(grant);
+          }
+        }
+
+        if (watershedGrants.length > 0) {
+          html += '<h2 class="results-section-header">Watershed District Programs</h2>';
+          for (const grant of watershedGrants) {
+            html += renderGrantCard(grant);
+          }
+        }
+
+        if (countyGrants.length > 0) {
+          const countyName = countyGrants[0].county_name || 'County';
+          html += `<h2 class="results-section-header">${countyName} Programs</h2>`;
+          for (const grant of countyGrants) {
             html += renderGrantCard(grant);
           }
         }
@@ -878,7 +947,7 @@
     }
 
     function renderGrantCard(grant) {
-      const cardClass = grant.source === 'local' ? 'local' : 'statewide';
+      const cardClass = grant.source || 'statewide';
 
       let html = `<div class="result-card ${cardClass}">`;
 
