@@ -538,16 +538,20 @@
           "id": "slp-rainwater-rewards",
           "name": "Rainwater Rewards Program",
           "admin": "City of St. Louis Park",
-          "amount": "Varies — contact city for current amounts",
+          "amount": "Free rain garden design + installation (lottery) or DIY project funding",
           "property_types": ["residential"],
           "project_types": [
-            "rain barrels",
             "rain gardens",
+            "rain barrels",
+            "permeable pavement",
+            "green roofs",
             "stormwater BMPs"
           ],
-          "url": "https://www.stlouisparkmn.gov/government/departments-divisions/natural-resouces/rainwater-rewards-program",
-          "notes": "Contact the city for current program details and funding availability.",
-          "needs_research": true
+          "application_timeline": "Applications reopen when funding is available — check city website",
+          "eligibility_note": "Rain garden lottery limited to ~30 households/year. DIY projects also eligible. Program has been oversubscribed — funding may be exhausted for current cycle.",
+          "url": "https://www.stlouisparkmn.gov/government/departments-divisions/engineering/stormwater-management",
+          "link_text": "Learn more →",
+          "notes": "Very popular program — Metro Blooms designs and installs rain gardens for lottery winners. Check the city's stormwater management page for current availability."
         }
       ]
     }

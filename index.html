@@ -754,10 +754,16 @@
       }
 
       // Check for county-specific programs (SWCD programs)
+      // Skip county programs that duplicate watershed programs (check if admin name overlaps)
+      const watershedAdmins = grants.filter(g => g.source === 'watershed').map(g => (g.admin || '').toLowerCase());
       const county = location.county || (watershed ? watershedCounties[watershed.id] : null);
       if (county && grantsData.county_programs && grantsData.county_programs[county]) {
         const countyData = grantsData.county_programs[county];
         for (const program of countyData.programs) {
+          const programAdmin = (program.admin || '').toLowerCase();
+          // Skip if this admin org already appears in a watershed program's admin field
+          if (programAdmin && watershedAdmins.some(wa => wa.includes(programAdmin) || programAdmin.includes(wa))) continue;
+
           if (matchesPropertyType(program)) {
             grants.push({
               ...program,
