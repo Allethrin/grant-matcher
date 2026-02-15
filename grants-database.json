@@ -1,8 +1,8 @@
 {
   "meta": {
-    "version": "0.4.0",
-    "last_updated": "2026-02-14",
-    "notes": "16 watersheds covered, 17 still need research. Added city_programs and county_programs for financial incentives beyond watershed grants.",
+    "version": "0.5.0",
+    "last_updated": "2026-02-15",
+    "notes": "16 watersheds covered, 17 still need research. 7 city programs (Minneapolis, St. Louis Park, Eden Prairie, Roseville, Burnsville, Apple Valley, Lakeville). 8 county programs (Dakota, Carver, Scott, Ramsey, Washington, Anoka, Hennepin Good Steward + Opportunity Grants).",
     "maintenance": {
       "schedule": "Monthly verification recommended",
       "process": "Check each URL, verify amounts/eligibility still current, update JSON"
@@ -554,6 +554,116 @@
           "notes": "Very popular program — Metro Blooms designs and installs rain gardens for lottery winners. 75% reimbursement on DIY projects. Up to $50 rebate per rain barrel (max 3). If the link doesn't work, search 'St. Louis Park Rainwater Rewards' or call the city."
         }
       ]
+    },
+    "eden prairie": {
+      "city_name": "Eden Prairie",
+      "programs": [
+        {
+          "id": "eden-prairie-landscaping-rebate",
+          "name": "Landscaping for Water Quality Rebate",
+          "admin": "City of Eden Prairie",
+          "amount": "80% of pre-tax cost, up to $2,000",
+          "property_types": ["residential"],
+          "project_types": [
+            "rain gardens",
+            "infiltration basins",
+            "shoreland buffers",
+            "pollinator gardens treating stormwater"
+          ],
+          "eligibility_note": "At least 75% of vegetation must be native species (per U of M Bee Lab or Blue Thumb lists). Must comply with City Code Section 9.71 on native landscaping.",
+          "application_timeline": "Year-round — check city website for current availability",
+          "url": "https://www.edenprairiemn.gov/community/sustainable-eden-prairie/water/water-conservation-rebate-programs/landscaping-rebates",
+          "notes": "One of the best city-level programs in the metro. Reimbursement-based. Can potentially stack with watershed district grants (RPBCWD or Nine Mile Creek). Commercial/institutional/HOA projects eligible up to $5,000."
+        }
+      ]
+    },
+    "roseville": {
+      "city_name": "Roseville",
+      "programs": [
+        {
+          "id": "roseville-stormwater-credit",
+          "name": "Stormwater Utility Fee Credit",
+          "admin": "City of Roseville Engineering",
+          "amount": "25-75% stormwater fee reduction (ongoing)",
+          "property_types": ["residential", "commercial"],
+          "project_types": [
+            "rain gardens",
+            "rain barrels",
+            "native plantings",
+            "shoreline stabilization"
+          ],
+          "eligibility_note": "Ongoing annual savings — not a one-time grant. BMPs must comply with city standards and be approved by Engineering Department. Renewal required every 5 years.",
+          "application_timeline": "Year-round — contact Engineering Department",
+          "url": "https://www.cityofroseville.com/3029/Stormwater-Utility-Credit",
+          "notes": "Tiered credit: 25% for practices handling 10-year storm, up to 75% for 100-year storm capacity. Contact 651-792-7004 for residential toolbox details. Periodic inspections required."
+        }
+      ]
+    },
+    "burnsville": {
+      "city_name": "Burnsville",
+      "programs": [
+        {
+          "id": "burnsville-water-resources-grant",
+          "name": "Neighborhood Water Resources Enhancement Grant",
+          "admin": "City of Burnsville",
+          "amount": "Up to $1,000",
+          "property_types": ["residential"],
+          "project_types": [
+            "rain gardens",
+            "shoreline restoration",
+            "native gardens"
+          ],
+          "eligibility_note": "Reimbursement-based — only make purchases after grant agreement is signed. Priority given to applicants who completed Dakota County SWCD's Landscaping for Clean Water workshop.",
+          "application_timeline": "Round 1 deadline: May 1, 2026",
+          "url": "https://www.burnsvillemn.gov/594/Rain-Gardens",
+          "notes": "Submit application to john.stelzner@burnsvillemn.gov. Must include plant selections, site dimensions, and maintenance plans. Can stack with Dakota County SWCD grants."
+        }
+      ]
+    },
+    "apple valley": {
+      "city_name": "Apple Valley",
+      "programs": [
+        {
+          "id": "apple-valley-rainwater-rewards",
+          "name": "Rainwater Rewards Grant Program",
+          "admin": "City of Apple Valley Engineering",
+          "amount": "50% of cost, up to $500",
+          "property_types": ["residential", "commercial"],
+          "project_types": [
+            "rain gardens",
+            "shoreline buffers",
+            "native gardens",
+            "rain barrels",
+            "green roofs",
+            "permeable pavement"
+          ],
+          "eligibility_note": "Native plants only — no cultivar species. Projects cannot be in easements without city permission. First-come, first-served.",
+          "application_timeline": "Year-round until funds are exhausted",
+          "url": "https://www.applevalleymn.gov/376/Rainwater-Rewards-Grant-Program",
+          "notes": "Reimbursement grant — paid receipts and project photos required. Rain gardens and shoreline projects given priority. Contact Engineering at (952) 953-2400."
+        }
+      ]
+    },
+    "lakeville": {
+      "city_name": "Lakeville",
+      "programs": [
+        {
+          "id": "lakeville-lcw-rebate",
+          "name": "Landscaping for Clean Water Rebate",
+          "admin": "City of Lakeville",
+          "amount": "$250 utility bill credit",
+          "property_types": ["residential"],
+          "project_types": [
+            "rain gardens",
+            "native gardens",
+            "shoreline restoration"
+          ],
+          "eligibility_note": "Must complete Landscaping for Clean Water workshop in the current year. Limited to first 10 applicants. One rebate per address. Projects must be 15+ feet from foundations.",
+          "application_timeline": "After completing LCW workshop — limited spots",
+          "url": "https://www.lakevillemn.gov/1244/Financial-Incentives-for-Environmental-I",
+          "notes": "Stacks with Dakota County SWCD grant ($250+) for a potential combined $500+. Modest but easy to access."
+        }
+      ]
     }
   },
   "county_programs": {
@@ -672,6 +782,51 @@
           "url": "http://www.mnwcd.org/financial-assistance",
           "link_text": "Contact Washington Conservation District →",
           "notes": "WCD connects residents to available funding across watershed districts. Good umbrella resource for Washington County."
+        }
+      ]
+    },
+    "anoka": {
+      "county_name": "Anoka County",
+      "programs": [
+        {
+          "id": "anoka-cd-cost-share",
+          "name": "Cost Share Grant Program",
+          "admin": "Anoka Conservation District",
+          "amount": "Up to 75% of project costs (95% for street runoff practices)",
+          "property_types": ["residential", "commercial"],
+          "project_types": [
+            "rain gardens",
+            "curb cut rain gardens",
+            "native plantings",
+            "shoreline restoration"
+          ],
+          "application_timeline": "Applications reviewed monthly",
+          "eligibility_note": "Practices treating street/parking area runoff may qualify for 95% funding. Discuss project with ACD staff before applying.",
+          "url": "https://anokaswcd.org/financial-technical-assistance.html",
+          "notes": "Very generous for curb-cut rain gardens (up to 95%). Contact Jamie Schurbon at 763-434-2030 ext. 210. Grant amount based on natural resource benefits and cost effectiveness."
+        }
+      ]
+    },
+    "hennepin": {
+      "county_name": "Hennepin County",
+      "programs": [
+        {
+          "id": "hennepin-good-steward",
+          "name": "Good Steward Grants",
+          "admin": "Hennepin County Environment & Energy",
+          "amount": "$10,000 - $25,000 (up to 75% of project cost)",
+          "property_types": ["residential", "commercial", "nonprofit", "church", "school", "municipal"],
+          "match_required": "25%",
+          "project_types": [
+            "rain gardens",
+            "native vegetation restoration",
+            "stream bank stabilization",
+            "vegetated filter strips",
+            "stormwater BMPs"
+          ],
+          "application_timeline": "Check Hennepin County website for current round",
+          "url": "https://www.hennepin.us/business/conservation/funding-assistance-natural-resources-projects",
+          "notes": "All landowners eligible including individual homeowners. Smaller and more accessible than Opportunity Grants. In-kind contributions can count toward 25% match. Great for larger residential prairie restorations."
         }
       ]
     }
