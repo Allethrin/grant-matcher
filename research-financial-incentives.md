@@ -1,8 +1,8 @@
 # Financial Incentives Research: Beyond Watershed Grants
 
-**Date**: 2026-02-14
+**Date**: 2026-02-14 (updated 2026-02-16)
 **Purpose**: Expand Grant Matcher to surface all financial benefits for native landscaping, not just watershed district grants.
-**Status**: Initial research complete, needs verification pass on some details
+**Status**: Complete — all programs deployed in database v0.5.0, live at grants.minneprairie.com
 
 ---
 
@@ -28,12 +28,53 @@ Many addresses currently return thin results — e.g., Lawns to Legumes (closed)
 
 **St. Louis Park Rainwater Rewards Program**
 - Admin: City of St. Louis Park
-- Value: TBD — verify current amounts
-- Eligible: Rain barrels, stormwater BMPs
+- Value: Free rain garden design + installation (lottery, 30 households/year) or DIY project funding
+- Eligible: Rain gardens, rain barrels, permeable pavement, green roofs, stormwater BMPs
 - Property types: Residential
 - Geographic: St. Louis Park city limits
 - URL: https://www.stlouisparkmn.gov/government/departments-divisions/natural-resouces/rainwater-rewards-program
-- Status: NEEDS VERIFICATION — search results referenced 2025 funding cycle. Confirm 2026 availability and amounts.
+- Status: VERIFIED — program exists and is active. 2025 funding exhausted due to high demand, applications resuming 2026. Website returning 403 errors as of Feb 2026 but URL is canonical.
+
+**Eden Prairie — Landscaping for Water Quality Rebate**
+- Admin: City of Eden Prairie
+- Amount: 80% of pre-tax cost, up to $2,000
+- Eligible: Native plantings, rain gardens, turf-to-native conversions
+- Property types: Residential
+- Geographic: Eden Prairie city limits
+- URL: https://www.edenprairie.org/residents/water-resources/landscaping-for-water-quality
+- Status: VERIFIED — highest percentage rebate of any city program.
+
+**Roseville — Stormwater Utility Fee Credit**
+- Admin: City of Roseville Engineering
+- Amount: 25-75% stormwater fee reduction (ongoing)
+- Property types: Residential
+- Geographic: Roseville city limits
+- URL: https://www.cityofroseville.com/1433/Stormwater-Utility
+- Status: VERIFIED — ongoing annual savings, not one-time.
+
+**Burnsville — Neighborhood Water Resources Enhancement Grant**
+- Admin: City of Burnsville
+- Amount: Up to $1,000
+- Property types: Residential
+- Geographic: Burnsville city limits
+- URL: https://www.burnsvillemn.gov/1736/Neighborhood-Water-Resources-Enhancement-G
+- Status: VERIFIED
+
+**Apple Valley — Rainwater Rewards Grant Program**
+- Admin: City of Apple Valley Engineering
+- Amount: 50% of cost, up to $500
+- Property types: Residential
+- Geographic: Apple Valley city limits
+- URL: https://www.applevalleymn.gov/422/Rainwater-Rewards
+- Status: VERIFIED
+
+**Lakeville — Landscaping for Clean Water Rebate**
+- Admin: City of Lakeville
+- Amount: $250 utility bill credit
+- Property types: Residential
+- Geographic: Lakeville city limits
+- URL: https://lakevillemn.gov/735/Landscaping-for-Clean-Water
+- Status: VERIFIED
 
 ### County SWCD Programs (separate layer from watershed districts)
 
@@ -115,43 +156,27 @@ Many addresses currently return thin results — e.g., Lawns to Legumes (closed)
 
 ---
 
-## Still Need Research
+## Batch Research Results (Feb 15, 2026)
 
-The following cities likely have stormwater utility credit programs similar to Minneapolis. Each would need individual verification:
+Researched 20 metro cities for stormwater credit programs. Most cities do NOT have standalone residential programs — they rely on watershed district programs instead.
 
-- St. Paul
-- Bloomington
-- Eagan
-- Edina
-- Eden Prairie
-- Minnetonka
-- Plymouth
-- Woodbury
-- Maple Grove
-- Brooklyn Park
-- Roseville
-- Golden Valley
-- Burnsville
-- Lakeville
-- Apple Valley
-- Cottage Grove
-- Fridley
-- Richfield
-- Shoreview
-- White Bear Lake
+**Cities with programs (added to database):** Eden Prairie, Roseville, Burnsville, Apple Valley, Lakeville
+**Cities confirmed NO standalone program:** St. Paul, Bloomington, Eagan, Edina, Minnetonka, Plymouth, Woodbury, Maple Grove, Brooklyn Park, Golden Valley, Cottage Grove, Fridley, Richfield, Shoreview, White Bear Lake
 
-**Anoka County SWCD** — not researched yet, may have programs.
-**Hennepin County** — beyond Opportunity Grants, may have additional programs.
+**County programs added:**
+- **Anoka Conservation District**: Up to 75% cost share (95% for street runoff practices). Contact Jamie Schurbon at 763-434-2030 ext. 210.
+- **Hennepin Good Steward Grants**: $10,000-$25,000 (up to 75% of project cost). All landowners including homeowners. 25% match required (in-kind counts).
 
 ---
 
-## Architecture Implications
+## Architecture Implications (Completed)
 
-Current tool keys everything off `watershed_id` from polygon lookup. New program types need:
+All of the following have been implemented in database v0.5.0:
 
-1. **Municipality matching**: Nominatim returns `city` in address details — use this to match city-level programs (stormwater credits, rain barrel rebates)
-2. **County matching**: Nominatim returns `county` — use for SWCD programs (already partially done via `watershedCounties` mapping, but SWCD programs are separate from watershed programs)
-3. **Statewide programs**: Already supported
-4. **Seasonal awareness**: Some programs (rain barrel sales) are only relevant March-April. Consider date-based display logic or just note the timing.
+1. **Municipality matching**: Nominatim `city` field → `city_programs` lookup. 7 cities covered.
+2. **County matching**: Nominatim `county` field → `county_programs` lookup. 8 counties covered.
+3. **Statewide programs**: Supported with optional `restrict_to_counties` field.
+4. **Display order**: City > Watershed > County > Statewide
+5. **Deduplication**: County programs skip when same admin already appears in watershed results.
 
-The grants-database.json schema needs new sections: `city_programs`, `county_programs` alongside existing `watershed_programs` and `statewide_programs`.
+Schema has `city_programs`, `county_programs`, `watershed_programs`, and `statewide_programs` sections.
