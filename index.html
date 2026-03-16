@@ -655,6 +655,30 @@
           };
         }
       }
+
+      // Fallback: GeoJSON boundaries have micro-gaps at seams.
+      // Find nearest watershed within 200m.
+      let nearest = null;
+      let nearestDist = Infinity;
+      for (const feature of watershedData.features) {
+        try {
+          const line = turf.polygonToLine(feature);
+          const snap = turf.nearestPointOnLine(line, point, { units: 'meters' });
+          if (snap.properties.dist < nearestDist) {
+            nearestDist = snap.properties.dist;
+            nearest = feature;
+          }
+        } catch (e) { /* skip malformed geometries */ }
+      }
+      if (nearest && nearestDist < 200) {
+        console.log('Watershed fallback: nearest boundary', Math.round(nearestDist), 'm ->', nearest.properties.NAME);
+        return {
+          name: nearest.properties.NAME,
+          type: nearest.properties.TYPE,
+          id: nearest.properties.id
+        };
+      }
+
       return null;
     }
 
@@ -710,9 +734,9 @@
 
       // Include statewide programs that match property type and county restrictions
       for (const program of grantsData.statewide_programs) {
-        if (program.restrict_to_counties && watershed) {
-          const wsCounty = watershedCounties[watershed.id];
-          if (!wsCounty || !program.restrict_to_counties.includes(wsCounty)) {
+        if (program.restrict_to_counties) {
+          const county = (watershed ? watershedCounties[watershed.id] : null) || location.county;
+          if (!county || !program.restrict_to_counties.includes(county)) {
             continue;
           }
         }
