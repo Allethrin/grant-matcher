@@ -386,15 +386,15 @@
           "id": "dakota-swcd-landscaping-grant",
           "name": "Landscaping for Clean Water Grant",
           "admin": "Dakota County SWCD",
-          "amount": "$400 grant upon completion",
+          "amount": "$250 grant upon completion",
           "property_types": ["residential", "school", "church"],
           "project_types": [
             "rain gardens",
             "native plantings"
           ],
-          "eligibility_note": "Must complete required landscaping class first. Available to Dakota County residents and Ramsey County residents within the Lower Mississippi River Watershed (west side of St. Paul).",
+          "eligibility_note": "Must complete free Landscaping for Clean Water class and design course first (registration closes June 18, 2026). Available to Dakota County residents and Ramsey County residents within the Lower Mississippi River Watershed (west side of St. Paul). Note: LMRWMO itself does not offer direct residential grants — this is a county-level program.",
           "url": "https://dakotaswcd.org/landscaping-for-clean-water/",
-          "notes": "Grant upon project completion. Class requirement ensures project success. On-site technical assistance included."
+          "notes": "Grant upon project completion. Class + design course required. On-site technical assistance included. 3 application rounds in 2026."
         }
       ]
     },
@@ -489,6 +489,30 @@
         }
       ]
     },
+    "lower-minnesota-river": {
+      "watershed_name": "LOWER MINNESOTA RIVER",
+      "programs": [
+        {
+          "id": "lmrwd-cost-share",
+          "name": "Cost Share Incentive Program",
+          "admin": "Lower Minnesota River Watershed District",
+          "amount": "Up to 50% of project cost (minimum $500 grant)",
+          "property_types": ["residential", "commercial", "nonprofit", "school", "church", "municipal"],
+          "match_required": "50%",
+          "project_types": [
+            "rain gardens",
+            "shoreline restoration",
+            "native plantings",
+            "permeable pavers",
+            "buckthorn removal with native restoration"
+          ],
+          "eligibility_note": "Projects must be within LMRWD boundaries. Must apply before starting project. Projects receiving $10,000+ may require 10-year maintenance agreement.",
+          "application_timeline": "Rolling until funds exhausted — check website for 2026 cycle",
+          "url": "https://lowermnriverwd.org/makeadifference/cost-share-grants",
+          "notes": "Reimbursement-based. Covers materials, labor, engineering, and consulting fees. Contact 763-545-4659 for current availability. One of the more generous watershed programs in Dakota County."
+        }
+      ]
+    },
     "eagan-inver-grove": {
       "watershed_name": "EAGAN-INVER GROVE HEIGHTS",
       "programs": [
@@ -496,14 +520,14 @@
           "id": "eigh-landscaping-clean-water",
           "name": "Landscaping for Clean Water Grant",
           "admin": "E-IGH WMO + Dakota County SWCD",
-          "amount": "$400 grant upon completion",
+          "amount": "$250 grant upon completion",
           "property_types": ["residential"],
           "project_types": [
             "rain gardens",
             "native gardens",
             "shoreline stabilization"
           ],
-          "eligibility_note": "Must complete Landscaping for Clean Water workshop first. WMO budgets for ~12 projects/year.",
+          "eligibility_note": "Must complete Landscaping for Clean Water workshop first. WMO budgets for ~12 projects/year. Registration closes June 18, 2026.",
           "url": "https://dakotaswcd.org/classes/landscaping-for-clean-water/",
           "notes": "Workshops and design assistance provided by Dakota County SWCD."
         }
@@ -674,16 +698,16 @@
           "id": "dakota-swcd-landscaping",
           "name": "Landscaping for Clean Water",
           "admin": "Dakota County SWCD",
-          "amount": "$400 grant upon completion",
+          "amount": "$250 grant upon completion",
           "property_types": ["residential", "school", "church"],
           "project_types": [
             "rain gardens",
             "native gardens",
             "shoreline plantings"
           ],
-          "eligibility_note": "Must complete free Landscaping for Clean Water class first. 3 application rounds in 2026. Stacks with watershed district grants.",
+          "eligibility_note": "Must complete free Landscaping for Clean Water class and design course first. Registration closes June 18, 2026. 3 application rounds in 2026. Stacks with watershed district grants.",
           "url": "https://dakotaswcd.org/landscaping-for-clean-water/",
-          "notes": "On-site technical assistance included. Class ensures project quality. Can combine with watershed grants for more total funding."
+          "notes": "On-site technical assistance included. Class + design course required. Can combine with watershed grants for more total funding."
         }
       ]
     },
@@ -839,7 +863,6 @@
     "comfort-lake-forest-lake",
     "coon-creek",
     "elm-creek",
-    "lower-minnesota-river",
     "lower-rum-river",
     "north-cannon-river",
     "pioneer-sarah-creek",
