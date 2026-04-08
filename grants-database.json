@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "0.5.0",
-    "last_updated": "2026-02-15",
+    "last_updated": "2026-04-08",
     "notes": "16 watersheds covered, 17 still need research. 7 city programs (Minneapolis, St. Louis Park, Eden Prairie, Roseville, Burnsville, Apple Valley, Lakeville). 8 county programs (Dakota, Carver, Scott, Ramsey, Washington, Anoka, Hennepin Good Steward + Opportunity Grants).",
     "maintenance": {
       "schedule": "Monthly verification recommended",
@@ -44,7 +44,7 @@
       ],
       "selection": "Weighted lottery - priority for rusty-patched bumblebee habitat areas, environmental justice factors",
       "application_cycles": "Spring and Fall each year",
-      "notes": "Weighted lottery with priority for rusty-patched bumblebee habitat areas. Spring 2026 cycle is closed — next application window expected Fall 2026.",
+      "notes": "Weighted lottery with priority for rusty-patched bumblebee habitat areas. Currently closed — next application window expected Spring 2027.",
       "url": "https://bluethumb.org/lawns-to-legumes/apply/",
       "info_url": "https://bwsr.state.mn.us/l2l"
     },
@@ -318,9 +318,9 @@
             "habitat restoration",
             "chloride reduction"
           ],
-          "application_timeline": "Apply by March 30, 2026",
+          "application_timeline": "Check website for current cycle",
           "url": "https://www.ninemilecreek.org/get-involved/grants/",
-          "notes": "Covers Bloomington, Eden Prairie, Edina, Hopkins, Minnetonka, Richfield. Associations up to $6,250; commercial/gov/nonprofit up to $12,500. In 2026, 50% of budget reserved for priority equity zones (Hopkins, Richfield, portions of Bloomington/Edina/Eden Prairie). In-kind labor at $35/hr."
+          "notes": "Covers Bloomington, Eden Prairie, Edina, Hopkins, Minnetonka, Richfield. Associations up to $6,250; commercial/gov/nonprofit up to $12,500. 50% of budget reserved for priority equity zones (Hopkins, Richfield, portions of Bloomington/Edina/Eden Prairie). In-kind labor at $35/hr."
         }
       ]
     },
@@ -386,14 +386,14 @@
           "id": "dakota-swcd-landscaping-grant",
           "name": "Landscaping for Clean Water Grant",
           "admin": "Dakota County SWCD",
-          "amount": "$250 grant upon completion",
+          "amount": "$400 cost share grant upon completion",
           "property_types": ["residential", "school", "church"],
           "project_types": [
             "rain gardens",
             "native plantings"
           ],
           "eligibility_note": "Must complete free Landscaping for Clean Water class and design course first (registration closes June 18, 2026). Available to Dakota County residents and Ramsey County residents within the Lower Mississippi River Watershed (west side of St. Paul). Note: LMRWMO itself does not offer direct residential grants — this is a county-level program.",
-          "url": "https://dakotaswcd.org/landscaping-for-clean-water/",
+          "url": "https://dakotaswcd.org/classes/landscaping-for-clean-water/",
           "notes": "Grant upon project completion. Class + design course required. On-site technical assistance included. 3 application rounds in 2026."
         }
       ]
@@ -458,9 +458,9 @@
             "habitat restoration"
           ],
           "eligibility_note": "Richfield and Bloomington residents are served by Nine Mile Creek Watershed District.",
-          "application_timeline": "Apply by March 30, 2026",
+          "application_timeline": "Check website for current cycle",
           "url": "https://www.ninemilecreek.org/get-involved/grants/",
-          "notes": "Same program as Nine Mile Creek - these cities fall within NMCWD jurisdiction. In 2026, 50% of budget reserved for priority equity zones including Richfield and portions of Bloomington."
+          "notes": "Same program as Nine Mile Creek - these cities fall within NMCWD jurisdiction. 50% of budget reserved for priority equity zones including Richfield and portions of Bloomington."
         }
       ]
     },
@@ -484,8 +484,8 @@
             "stream restoration"
           ],
           "application_timeline": "Year-round until funds depleted",
-          "url": "https://www.swwdmn.org/programs/water-quality-cost-share-program/",
-          "notes": "Free site visit and concept design included. Small grants track up to $500 for smaller residential projects."
+          "url": "https://swwdmn.gov/implementation-and-maintenance/",
+          "notes": "Free site visit and concept design included. Small grants track up to $500 for smaller residential projects. Note: SWWD migrated from swwdmn.org to swwdmn.gov — cost share page temporarily unavailable, linked to parent page."
         }
       ]
     },
@@ -496,7 +496,7 @@
           "id": "lmrwd-cost-share",
           "name": "Cost Share Incentive Program",
           "admin": "Lower Minnesota River Watershed District",
-          "amount": "Up to 50% of project cost (minimum $500 grant)",
+          "amount": "Up to $2,500 residential ($7,500 associations, $20,000 commercial/govt/nonprofit)",
           "property_types": ["residential", "commercial", "nonprofit", "school", "church", "municipal"],
           "match_required": "50%",
           "project_types": [
@@ -520,7 +520,7 @@
           "id": "eigh-landscaping-clean-water",
           "name": "Landscaping for Clean Water Grant",
           "admin": "E-IGH WMO + Dakota County SWCD",
-          "amount": "$250 grant upon completion",
+          "amount": "$400 cost share grant upon completion",
           "property_types": ["residential"],
           "project_types": [
             "rain gardens",
@@ -676,6 +676,7 @@
           "name": "Landscaping for Clean Water Rebate",
           "admin": "City of Lakeville",
           "amount": "$250 utility bill credit",
+          "needs_research": true,
           "property_types": ["residential"],
           "project_types": [
             "rain gardens",
@@ -698,7 +699,7 @@
           "id": "dakota-swcd-landscaping",
           "name": "Landscaping for Clean Water",
           "admin": "Dakota County SWCD",
-          "amount": "$250 grant upon completion",
+          "amount": "$400 cost share grant upon completion",
           "property_types": ["residential", "school", "church"],
           "project_types": [
             "rain gardens",
