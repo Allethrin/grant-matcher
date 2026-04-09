@@ -1,0 +1,11 @@
+# MinnePrairie Grant Matcher
+
+> A free tool that helps Twin Cities homeowners find cost-share grants and rebates for native landscaping, rain gardens, pollinator habitat, and stormwater management projects. Enter your address to see which watershed district, city, and county programs you qualify for — many cover 50-100% of project costs.
+
+## Tool
+
+- [Grant Matcher](https://grants.minneprairie.com): Address-based lookup for native landscaping grants across the Twin Cities metro. Covers 17 metro watersheds, 7 city programs, and 8 county programs.
+
+## About MinnePrairie
+
+- [MinnePrairie](https://minneprairie.com): Regenerative landscaping company in Minneapolis/St. Paul specializing in prairie restoration, rain gardens, and ecological landscape design.
