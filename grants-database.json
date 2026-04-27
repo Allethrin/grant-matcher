@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "0.5.0",
-    "last_updated": "2026-04-08",
+    "last_updated": "2026-04-27",
     "notes": "16 watersheds covered, 17 still need research. 7 city programs (Minneapolis, St. Louis Park, Eden Prairie, Roseville, Burnsville, Apple Valley, Lakeville). 8 county programs (Dakota, Carver, Scott, Ramsey, Washington, Anoka, Hennepin Good Steward + Opportunity Grants).",
     "maintenance": {
       "schedule": "Monthly verification recommended",
@@ -31,29 +31,24 @@
       "admin": "BWSR + Blue Thumb + Metro Blooms",
       "amount": "Up to $400 reimbursement",
       "match_required": "25%",
-      "eligibility": {
-        "property_types": ["residential"],
-        "owner_or_renter": "both",
-        "requirements": "Must have outdoor planting space"
-      },
+      "property_types": ["residential"],
       "project_types": [
         "native pocket plantings",
         "pollinator trees and shrubs",
         "pollinator lawns",
         "pollinator meadows"
       ],
-      "selection": "Weighted lottery - priority for rusty-patched bumblebee habitat areas, environmental justice factors",
-      "application_cycles": "Spring and Fall each year",
-      "notes": "Weighted lottery with priority for rusty-patched bumblebee habitat areas. Currently closed — next application window expected Spring 2027.",
-      "url": "https://bluethumb.org/lawns-to-legumes/apply/",
-      "info_url": "https://bwsr.state.mn.us/l2l"
+      "eligibility_note": "Must have outdoor planting space. Renters welcome.",
+      "application_timeline": "Spring and fall each year",
+      "notes": "Weighted lottery with priority for habitat areas and environmental justice factors. Currently closed — next application window expected Spring 2027.",
+      "url": "https://bluethumb.org/lawns-to-legumes/apply/"
     },
     {
       "id": "hennepin-county-opportunity-grants",
       "name": "Hennepin County Opportunity Grants",
       "admin": "Hennepin County Environment & Energy",
       "amount": "$25,000 - $50,000",
-      "match_required": "Can be used as match for other funding sources",
+      "match_required": "None",
       "restrict_to_counties": ["hennepin"],
       "property_types": ["residential", "commercial", "nonprofit", "church", "school", "municipal"],
       "project_types": [
@@ -67,8 +62,8 @@
       ],
       "eligibility_note": "For larger projects leveraging multiple funding sources. Hennepin County properties only. Pre-application meeting recommended.",
       "application_timeline": "Currently closed — check back for future rounds",
-      "notes": "Awarded $353k across 6 projects in 2024. Great for institutions, nonprofits, churches planning significant native restoration. No match required.",
-      "url": "https://www.hennepin.us/business/conservation/funding-assistance-natural-resources-projects"
+      "notes": "Great for institutions, nonprofits, churches planning significant native restoration. Can be used as match for other funding sources.",
+      "url": "https://www.hennepincounty.gov/services/grants-funding-opportunities/environmental-grants-funding/land-and-water-protection-and-restoration-grants/opportunity-grants"
     }
   ],
   "watershed_programs": {
@@ -78,19 +73,22 @@
         {
           "id": "crwd-clean-water-project-grant",
           "name": "Clean Water Project Grant",
-          "amount": "$500 - $200,000 (typical: $500 - $20,000)",
-          "property_types": ["residential", "commercial", "institutional", "municipal"],
+          "amount": "$500 - $20,000 typical (up to $200,000 for large projects)",
+          "property_types": ["residential", "commercial", "nonprofit", "institutional", "municipal"],
           "project_types": [
-            "rain garden",
-            "native planting",
+            "rain gardens",
+            "native plantings",
             "permeable pavement",
-            "curb cut boulevard",
-            "shoreline restoration"
+            "curb-cut boulevard rain gardens",
+            "shoreline restoration",
+            "green roofs",
+            "water harvesting and reuse systems"
           ],
+          "match_required": "As low as 0-5% for residents (25% for businesses). Some locations qualify for reduced rates.",
+          "eligibility_note": "Must be within Capitol Region Watershed District boundaries. Site visit included before project approval.",
           "application_timeline": "Year-round",
-          "includes_site_visit": true,
           "url": "https://www.capitolregionwd.org/grants/clean-water-project-grants/",
-          "notes": "Reimbursement-based. Started 2005. 147+ rain gardens in Hamline-Midway alone."
+          "notes": "One of the most generous programs in the metro — 95-100% reimbursement for residents. Some locations may qualify for full coverage. 10-year maintenance commitment required."
         },
         {
           "id": "crwd-maintenance-grant",
@@ -98,13 +96,13 @@
           "amount": "$200 - $2,000/year",
           "property_types": ["commercial", "institutional", "municipal", "hoa"],
           "project_types": [
-            "maintenance of existing stormwater BMPs"
+            "maintenance of existing stormwater projects"
           ],
           "eligibility_note": "For non-residential properties with previous CRWD-funded projects. Covers weeding, plant replacement, erosion repair, mulching, etc.",
           "match_required": "50% (25% in Focus Areas)",
           "application_timeline": "Year-round",
           "url": "https://www.capitolregionwd.org/grants/clean-water-project-maintenance-grants/",
-          "notes": "Helps businesses, churches, HOAs, schools maintain existing installations. Volunteer hours count at $25/hr toward match."
+          "notes": "Helps businesses, churches, HOAs, schools maintain existing installations. Volunteer hours count toward match."
         }
       ]
     },
@@ -123,7 +121,7 @@
           ],
           "eligibility_note": "MCWD does not offer direct residential grants. Homeowners should contact their city or county for local cost-share options.",
           "url": "https://minnehahacreek.org/faq/",
-          "notes": "Covers 29 communities in Hennepin/Carver counties. Contact your city for available programs."
+          "notes": "Contact your city for available programs."
         },
         {
           "id": "mcwd-land-water-partnership",
@@ -211,14 +209,14 @@
         {
           "id": "rwmwd-maintenance",
           "name": "Maintenance Funding",
-          "amount": "Up to $1,500/year ($7,500 over 5 years)",
+          "amount": "Up to $1,500/year",
           "property_types": ["residential", "commercial", "institutional", "church", "school", "hoa"],
           "project_types": [
             "maintenance of existing grant-funded projects"
           ],
           "eligibility_note": "For properties with RWMWD grant-funded projects completed within last 5 years.",
           "url": "https://rwmwd.org/get-involved/stewardship-grants/",
-          "notes": "Up to 50% of annual maintenance costs."
+          "notes": "Covers weeding, plant replacement, and erosion repair on existing grant-funded projects."
         }
       ]
     },
@@ -253,7 +251,7 @@
             "pervious pavers"
           ],
           "url": "https://www.ricecreek.org/grants/water-quality-grants/",
-          "notes": "25-50% funding typical, up to 75% for highly beneficial projects. Covers Anoka, Hennepin, Ramsey, Washington counties."
+          "notes": "25-50% funding typical, up to 75% for highly beneficial projects."
         }
       ]
     },
@@ -271,11 +269,14 @@
             "pervious pavement",
             "infiltration basins",
             "green roofs",
+            "cisterns",
+            "conversion of impervious surfaces to native plants",
             "riverbank stabilization"
           ],
-          "eligibility_note": "For private property owners. $10k minimum means this is better suited for larger residential or commercial projects. Applications go through City Engineer.",
+          "eligibility_note": "$10,000 minimum — best suited for larger residential or commercial projects. Contact your city to apply.",
+          "application_timeline": "Contact your city engineer",
           "url": "https://www.shinglecreek.org/cost-share.html",
-          "notes": "Member cities: Brooklyn Center, Brooklyn Park, Crystal, Maple Grove, Minneapolis, New Hope, Osseo, Plymouth, Robbinsdale. High minimum—consider other programs for smaller projects."
+          "notes": "Reimbursement-based. For smaller projects, check other programs listed for your area."
         }
       ]
     },
@@ -293,11 +294,14 @@
             "pervious pavement",
             "infiltration basins",
             "green roofs",
+            "cisterns",
+            "conversion of impervious surfaces to native plants",
             "riverbank stabilization"
           ],
-          "eligibility_note": "For private property owners. $10k minimum means this is better suited for larger residential or commercial projects. Applications go through City Engineer.",
+          "eligibility_note": "$10,000 minimum — best suited for larger residential or commercial projects. Contact your city to apply.",
+          "application_timeline": "Contact your city engineer",
           "url": "https://www.shinglecreek.org/cost-share.html",
-          "notes": "Same organization as Shingle Creek. Member cities: Brooklyn Center, Brooklyn Park, Champlin, Maple Grove, Osseo. High minimum—consider other programs for smaller projects."
+          "notes": "Reimbursement-based. For smaller projects, check other programs listed for your area."
         }
       ]
     },
@@ -307,9 +311,9 @@
         {
           "id": "nmcwd-cost-share",
           "name": "Cost Share Grant Program",
-          "amount": "Up to $3,750 (residential habitat/native plantings)",
+          "amount": "Up to $6,250 residential (more for HOAs, commercial, nonprofits)",
           "property_types": ["residential", "commercial", "hoa", "school", "church", "nonprofit", "municipal"],
-          "match_required": "Varies by project type",
+          "match_required": "25% (in-kind labor can count)",
           "project_types": [
             "rain gardens",
             "shoreline buffers",
@@ -320,7 +324,7 @@
           ],
           "application_timeline": "Check website for current cycle",
           "url": "https://www.ninemilecreek.org/get-involved/grants/",
-          "notes": "Covers Bloomington, Eden Prairie, Edina, Hopkins, Minnetonka, Richfield. Associations up to $6,250; commercial/gov/nonprofit up to $12,500. 50% of budget reserved for priority equity zones (Hopkins, Richfield, portions of Bloomington/Edina/Eden Prairie). In-kind labor at $35/hr."
+          "notes": "Two funding tiers — habitat/native plantings and stormwater projects. Priority funding for equity zones."
         }
       ]
     },
@@ -338,9 +342,23 @@
             "pervious pavers",
             "educational programs"
           ],
-          "eligibility_note": "NOT for individuals or private businesses. Only nonprofits, schools, faith-based orgs, government, and HOAs can apply. Individuals can partner with eligible orgs.",
+          "eligibility_note": "NOT for individuals or private businesses. Nonprofits, schools, neighborhood groups, HOAs, and government only. Individuals can partner with an eligible org to apply.",
           "url": "https://www.mwmo.org/get-involved/stewardship-fund-grants/",
-          "notes": "Covers ~40 sq miles in Minneapolis, St. Paul, St. Anthony Village, Lauderdale. Small-to-medium projects."
+          "notes": "No match required. Two rounds annually. About 3 months from application to funding. Must complete within 1 year."
+        },
+        {
+          "id": "mwmo-planning-grants",
+          "name": "Planning Grants",
+          "amount": "Up to $20,000",
+          "property_types": ["nonprofit", "school", "church", "hoa", "municipal"],
+          "match_required": "25%",
+          "project_types": [
+            "water quality planning",
+            "habitat initiative planning"
+          ],
+          "eligibility_note": "NOT for individuals or private businesses. For developing water quality or habitat initiative plans.",
+          "url": "https://www.mwmo.org/get-involved/stewardship-fund-grants/",
+          "notes": "Use this to develop a plan, then apply for a separate MWMO grant to build it. Two rounds annually. Must complete within 1 year."
         },
         {
           "id": "mwmo-action-grants",
@@ -353,9 +371,9 @@
             "water quality improvement",
             "habitat restoration"
           ],
-          "eligibility_note": "NOT for individuals or private businesses. For significant projects. Nonprofits, schools, faith-based orgs, government, and HOAs only.",
+          "eligibility_note": "NOT for individuals or private businesses. For projects ready for immediate implementation.",
           "url": "https://www.mwmo.org/get-involved/stewardship-fund-grants/",
-          "notes": "Larger-scale projects. MWMO staff help develop proposals before application."
+          "notes": "Two rounds annually. Competitive — not all projects funded. Prioritizes underserved populations and environmentally sensitive areas. Must complete within 1 year."
         }
       ]
     },
@@ -372,7 +390,7 @@
             "native plantings",
             "shoreline restoration"
           ],
-          "eligibility_note": "BCWMC does not offer direct grants. Check your city (Crystal, Golden Valley, Medicine Lake, Minneapolis, Minnetonka, New Hope, Plymouth, Robbinsdale, St. Louis Park) for local programs. Blue Thumb resources available.",
+          "eligibility_note": "BCWMC does not offer direct grants. Check your city for local programs.",
           "url": "https://bluethumb.org/local-grants-for-native-plantings/",
           "link_text": "Find local programs →",
           "notes": "Watershed provides education and resources but funding comes through member cities or statewide programs like Lawns to Legumes."
@@ -392,7 +410,7 @@
             "rain gardens",
             "native plantings"
           ],
-          "eligibility_note": "Must complete free Landscaping for Clean Water class and design course first (registration closes June 18, 2026). Available to Dakota County residents and Ramsey County residents within the Lower Mississippi River Watershed (west side of St. Paul). Note: LMRWMO itself does not offer direct residential grants — this is a county-level program.",
+          "eligibility_note": "Must complete free Landscaping for Clean Water class first (registration closes June 18, 2026). Available to Dakota County residents and west-side St. Paul residents within the Lower Mississippi River Watershed.",
           "url": "https://dakotaswcd.org/classes/landscaping-for-clean-water/",
           "notes": "Grant upon project completion. Class + design course required. On-site technical assistance included. 3 application rounds in 2026."
         }
@@ -447,20 +465,21 @@
           "id": "rb-nine-mile-creek",
           "name": "Nine Mile Creek Cost Share Program",
           "admin": "Nine Mile Creek Watershed District",
-          "amount": "Up to $3,750 (residential habitat/native plantings)",
+          "amount": "Up to $6,250 residential (more for HOAs, commercial, nonprofits)",
           "property_types": ["residential", "commercial", "hoa", "school", "church", "nonprofit", "municipal"],
-          "match_required": "Varies by project type",
+          "match_required": "25% (in-kind labor can count)",
           "project_types": [
             "rain gardens",
             "shoreline buffers",
             "permeable pavers",
             "native plantings",
-            "habitat restoration"
+            "habitat restoration",
+            "chloride reduction"
           ],
           "eligibility_note": "Richfield and Bloomington residents are served by Nine Mile Creek Watershed District.",
           "application_timeline": "Check website for current cycle",
           "url": "https://www.ninemilecreek.org/get-involved/grants/",
-          "notes": "Same program as Nine Mile Creek - these cities fall within NMCWD jurisdiction. 50% of budget reserved for priority equity zones including Richfield and portions of Bloomington."
+          "notes": "Two funding tiers — habitat/native plantings and stormwater projects. Richfield is a priority equity zone with reserved funding."
         }
       ]
     },
@@ -471,7 +490,7 @@
           "id": "swwd-cost-share",
           "name": "Water Quality Cost Share Program",
           "admin": "South Washington Watershed District",
-          "amount": "~50% of project cost ($5,000/lb phosphorus treated)",
+          "amount": "~50% of project cost",
           "property_types": ["residential", "commercial", "nonprofit", "church", "school", "municipal"],
           "match_required": "~50%",
           "project_types": [
@@ -485,7 +504,7 @@
           ],
           "application_timeline": "Year-round until funds depleted",
           "url": "https://swwdmn.gov/implementation-and-maintenance/",
-          "notes": "Free site visit and concept design included. Small grants track up to $500 for smaller residential projects. Note: SWWD migrated from swwdmn.org to swwdmn.gov — cost share page temporarily unavailable, linked to parent page."
+          "notes": "Free site visit and concept design included. Small grants track available (up to $500) for smaller residential projects."
         }
       ]
     },
@@ -506,10 +525,10 @@
             "permeable pavers",
             "buckthorn removal with native restoration"
           ],
-          "eligibility_note": "Projects must be within LMRWD boundaries. Must apply before starting project. Projects receiving $10,000+ may require 10-year maintenance agreement.",
-          "application_timeline": "Rolling until funds exhausted — check website for 2026 cycle",
+          "eligibility_note": "Must apply before starting your project.",
+          "application_timeline": "Applications typically open at beginning of each year — check website for current cycle status",
           "url": "https://lowermnriverwd.org/makeadifference/cost-share-grants",
-          "notes": "Reimbursement-based. Covers materials, labor, engineering, and consulting fees. Contact 763-545-4659 for current availability. One of the more generous watershed programs in Dakota County."
+          "notes": "Reimbursement-based. $500 minimum award. Contact the district for current availability."
         }
       ]
     },
@@ -546,12 +565,14 @@
           "property_types": ["residential"],
           "project_types": [
             "rain gardens",
-            "pervious pavement"
+            "pervious pavement",
+            "green roofs",
+            "stormwater reuse"
           ],
           "application_timeline": "May 1 - October 1 annually",
-          "eligibility_note": "Ongoing annual savings — not a one-time grant. Rain barrels are NOT eligible. Must be Minneapolis resident.",
+          "eligibility_note": "Ongoing annual savings — not a one-time grant. Rain barrels alone don't qualify. Practices must be on your property and treat runoff from your impervious surfaces.",
           "url": "https://www.minneapolismn.gov/resident-services/utility-services/stormwater/residential-stormwater-credits/",
-          "notes": "Permanent utility bill reduction for qualifying stormwater management practices. One of the most valuable incentives available — saves money every year."
+          "notes": "One of the most valuable incentives in Minneapolis — saves money every year, not just once."
         }
       ]
     },
@@ -562,20 +583,21 @@
           "id": "slp-rainwater-rewards",
           "name": "Rainwater Rewards Program",
           "admin": "City of St. Louis Park",
-          "amount": "Free rain garden design + installation (lottery) or DIY project funding",
+          "amount": "Up to $3,000",
           "property_types": ["residential"],
           "project_types": [
             "rain gardens",
             "rain barrels",
             "permeable pavement",
             "green roofs",
-            "stormwater BMPs"
+            "other stormwater practices"
           ],
-          "application_timeline": "Applications reopen when funding is available — check city website",
-          "eligibility_note": "Rain garden lottery limited to ~30 households/year. DIY projects also eligible. Program has been oversubscribed — funding may be exhausted for current cycle.",
+          "match_required": "25-50% depending on project type",
+          "application_timeline": "Year-round until funds are exhausted. Must be approved before starting work.",
+          "eligibility_note": "Two tracks: Rain garden lottery (city manages design and construction) or DIY reimbursement. One project per fiscal year.",
           "url": "https://www.stlouisparkmn.gov/government/departments-divisions/natural-resouces/rainwater-rewards-program",
           "link_text": "Learn more →",
-          "notes": "Very popular program — Metro Blooms designs and installs rain gardens for lottery winners. 75% reimbursement on DIY projects. Up to $50 rebate per rain barrel (max 3). If the link doesn't work, search 'St. Louis Park Rainwater Rewards' or call the city."
+          "notes": "Rain garden lottery is a great low-cost option — the city handles design and construction. Maintenance agreement required."
         }
       ]
     },
@@ -586,18 +608,19 @@
           "id": "eden-prairie-landscaping-rebate",
           "name": "Landscaping for Water Quality Rebate",
           "admin": "City of Eden Prairie",
-          "amount": "80% of pre-tax cost, up to $2,000",
-          "property_types": ["residential"],
+          "amount": "Up to $2,000 residential ($5,000 commercial/HOA)",
+          "property_types": ["residential", "commercial", "hoa", "institutional"],
           "project_types": [
             "rain gardens",
-            "infiltration basins",
-            "shoreland buffers",
-            "pollinator gardens treating stormwater"
+            "shoreline buffers",
+            "pollinator gardens treating stormwater",
+            "invasive species removal (as part of larger water quality project)"
           ],
-          "eligibility_note": "At least 75% of vegetation must be native species (per U of M Bee Lab or Blue Thumb lists). Must comply with City Code Section 9.71 on native landscaping.",
-          "application_timeline": "Year-round — check city website for current availability",
+          "match_required": "20%",
+          "eligibility_note": "Requires city permit approval before starting work. At least 75% native species required. 5-year maintenance commitment. Site visit recommended before applying.",
+          "application_timeline": "Year-round, first-come first-served until funds exhausted. Project must be completed within one year of approval.",
           "url": "https://www.edenprairiemn.gov/community/sustainable-eden-prairie/water/water-conservation-rebate-programs/landscaping-rebates",
-          "notes": "One of the best city-level programs in the metro. Reimbursement-based. Can potentially stack with watershed district grants (RPBCWD or Nine Mile Creek). Commercial/institutional/HOA projects eligible up to $5,000."
+          "notes": "Reimbursement-based — city inspects before and after. May be stackable with watershed district grants (Nine Mile Creek, RPBCWD)."
         }
       ]
     },
@@ -616,10 +639,10 @@
             "native plantings",
             "shoreline stabilization"
           ],
-          "eligibility_note": "Ongoing annual savings — not a one-time grant. BMPs must comply with city standards and be approved by Engineering Department. Renewal required every 5 years.",
+          "eligibility_note": "Ongoing annual savings — not a one-time grant. Practices must comply with city standards and be approved by Engineering. Renewal required every 5 years.",
           "application_timeline": "Year-round — contact Engineering Department",
           "url": "https://www.cityofroseville.com/3029/Stormwater-Utility-Credit",
-          "notes": "Tiered credit: 25% for practices handling 10-year storm, up to 75% for 100-year storm capacity. Contact 651-792-7004 for residential toolbox details. Periodic inspections required."
+          "notes": "Larger credits for practices that handle more runoff. Periodic inspections required."
         }
       ]
     },
@@ -640,7 +663,7 @@
           "eligibility_note": "Reimbursement-based — only make purchases after grant agreement is signed. Priority given to applicants who completed Dakota County SWCD's Landscaping for Clean Water workshop.",
           "application_timeline": "Round 1 deadline: May 1, 2026",
           "url": "https://www.burnsvillemn.gov/594/Rain-Gardens",
-          "notes": "Submit application to john.stelzner@burnsvillemn.gov. Must include plant selections, site dimensions, and maintenance plans. Can stack with Dakota County SWCD grants."
+          "notes": "Reimbursement-based. Must include plant selections, site dimensions, and maintenance plans. Can stack with Dakota County SWCD grants."
         }
       ]
     },
@@ -661,10 +684,10 @@
             "green roofs",
             "permeable pavement"
           ],
-          "eligibility_note": "Native plants only — no cultivar species. Projects cannot be in easements without city permission. First-come, first-served.",
+          "eligibility_note": "Native plants encouraged for water quality and pollinator habitat. Projects cannot be in easements without city permission. First-come, first-served.",
           "application_timeline": "Year-round until funds are exhausted",
           "url": "https://www.applevalleymn.gov/376/Rainwater-Rewards-Grant-Program",
-          "notes": "Reimbursement grant — paid receipts and project photos required. Rain gardens and shoreline projects given priority. Contact Engineering at (952) 953-2400."
+          "notes": "Reimbursement-based — receipts and photos required. Rain gardens and shoreline projects given priority."
         }
       ]
     },
@@ -683,7 +706,7 @@
             "native gardens",
             "shoreline restoration"
           ],
-          "eligibility_note": "Must complete Landscaping for Clean Water workshop in the current year. Limited to first 10 applicants. One rebate per address. Projects must be 15+ feet from foundations.",
+          "eligibility_note": "Must complete Landscaping for Clean Water workshop in the current year. Limited to first 10 applicants. One rebate per address.",
           "application_timeline": "After completing LCW workshop — limited spots",
           "url": "https://www.lakevillemn.gov/1244/Financial-Incentives-for-Environmental-I",
           "notes": "Stacks with Dakota County SWCD grant ($250+) for a potential combined $500+. Modest but easy to access."
@@ -706,7 +729,7 @@
             "native gardens",
             "shoreline plantings"
           ],
-          "eligibility_note": "Must complete free Landscaping for Clean Water class and design course first. Registration closes June 18, 2026. 3 application rounds in 2026. Stacks with watershed district grants.",
+          "eligibility_note": "Must complete free Landscaping for Clean Water class and design course first. Registration closes June 18, 2026.",
           "url": "https://dakotaswcd.org/landscaping-for-clean-water/",
           "notes": "On-site technical assistance included. Class + design course required. Can combine with watershed grants for more total funding."
         }
@@ -729,7 +752,7 @@
           ],
           "application_timeline": "Year-round, prioritized by submission date",
           "url": "https://bluethumb.org/local-grants-for-native-plantings-2026/",
-          "notes": "Very generous cost share — among the best in the metro. Applications accepted year-round based on available funding. Contact Carver SWCD at 952-466-5230."
+          "notes": "Very generous cost share — among the best in the metro."
         },
         {
           "id": "carver-wmo-pollinator",
@@ -744,7 +767,7 @@
           "eligibility_note": "Minimum project size: 250 square feet.",
           "application_timeline": "Year-round based on available funding",
           "url": "https://bluethumb.org/local-grants-for-native-plantings-2026/",
-          "notes": "Convert turf or non-native landscapes to pollinator habitat. Contact Carver SWCD at 952-466-5230."
+          "notes": "Convert turf or non-native landscapes to pollinator habitat."
         }
       ]
     },
@@ -762,7 +785,7 @@
             "pollinator habitat",
             "rain gardens"
           ],
-          "url": "https://www.scottswcd.org/post/scott-swcd-s-2025-natural-landscaping-programs",
+          "url": "https://www.scottswcd.org/tacs-urban",
           "link_text": "Contact Scott SWCD →",
           "notes": "Contact Scott SWCD for current program details and application process.",
           "needs_research": true
@@ -783,9 +806,9 @@
             "native plantings",
             "shoreline restoration"
           ],
-          "url": "https://www.ramseycounty.us/residents/environment/soil-water-conservation/cost-share-funding-assistance",
+          "url": "https://www.ramseycountymn.gov/residents/environment/soil-water-conservation/cost-share-funding-assistance",
           "link_text": "Contact Ramsey Conservation District →",
-          "notes": "Also offers design assistance for native gardens. Contact for current funding availability."
+          "notes": "Works through local watershed partners. Contact the district for current funding availability."
         }
       ]
     },
@@ -826,9 +849,9 @@
             "shoreline restoration"
           ],
           "application_timeline": "Applications reviewed monthly",
-          "eligibility_note": "Practices treating street/parking area runoff may qualify for 95% funding. Discuss project with ACD staff before applying.",
+          "eligibility_note": "Projects that capture street or parking lot runoff may qualify for 95% funding. Discuss your project with ACD staff before applying.",
           "url": "https://anokaswcd.org/financial-technical-assistance.html",
-          "notes": "Very generous for curb-cut rain gardens (up to 95%). Contact Jamie Schurbon at 763-434-2030 ext. 210. Grant amount based on natural resource benefits and cost effectiveness."
+          "notes": "Very generous for curb-cut rain gardens (up to 95%). Grant amount based on natural resource benefits and cost effectiveness."
         }
       ]
     },
@@ -846,11 +869,11 @@
             "rain gardens",
             "native vegetation restoration",
             "stream bank stabilization",
-            "vegetated filter strips",
-            "stormwater BMPs"
+            "planted buffer strips",
+            "other stormwater practices"
           ],
           "application_timeline": "Check Hennepin County website for current round",
-          "url": "https://www.hennepin.us/business/conservation/funding-assistance-natural-resources-projects",
+          "url": "https://www.hennepincounty.gov/services/grants-funding-opportunities/environmental-grants-funding/land-and-water-protection-and-restoration-grants",
           "notes": "All landowners eligible including individual homeowners. Smaller and more accessible than Opportunity Grants. In-kind contributions can count toward 25% match. Great for larger residential prairie restorations."
         }
       ]
